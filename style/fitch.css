@@ -278,3 +278,22 @@ clear:both;
 font-size:10pt;
 padding-top:20px;
 }
+
+.buttons {
+  width: 22%;
+  position: relative;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+}
+
+.logic-input {
+  width: 50px;
+  font-size: 16px;
+  margin: 5px;
+}

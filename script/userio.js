@@ -548,3 +548,38 @@ function errmess(n,mess) {
 	document.getElementById('dth').value = 'Plus 1';
 	show('rul');
 }
+
+let inputArea = null;
+
+//Eventlistener to update the currently focused input element.
+document.addEventListener("DOMContentLoaded", () => {
+	document.querySelectorAll('input[type="text"]').forEach(input => {
+		input.addEventListener('focus', () => {
+			inputArea = input
+		})
+	})
+})
+
+//function to add Logical symbols to the input element
+
+function insertText(symbol) {
+	console.log(inputArea)
+
+	if (inputArea && (inputArea.tagName === 'INPUT' || inputArea.tagName === 'TEXTAREA')) {
+		const startPos = inputArea.selectionStart;
+		const endPos = inputArea.selectionEnd;
+
+		const textBefore = inputArea.value.substring(0, startPos);
+		const textAfter = inputArea.value.substring(endPos, inputArea.value.length);
+
+		inputArea.value = textBefore + symbol + textAfter;
+
+		inputArea.selectionStart = inputArea.selectionEnd = startPos + symbol.length;
+
+		inputArea.focus();
+	} else {
+		alert("Please focus on the input or textarea to insert the logical symbol");
+	}
+}
+
+
