@@ -101,6 +101,7 @@ THE SOFTWARE.
 	<tr>
 		<td>Formula:</td>
 		<td>Rule:</td>
+		<td class="intro">Introduction Rule:</td>
 		<td class='siti'>Derived Rule:</td>
 		<td class='dth'>Depth</td>
 		<td class='lin'>Lines:</td>
@@ -113,16 +114,11 @@ THE SOFTWARE.
 			<option value='--Select--'>--Select--</option>
 			<option value='Assumption'>Assumption</option>
 			<option value='Reit'>Reit</option>
-			<option value='&amp;I'>&amp;I</option>
+			<option value="introduction">Introduction</option>
 			<option value='&amp;E'>&amp;E</option>
-			<option value='&gt;I'>&gt;I</option>
 			<option value='&gt;E'>&gt;E</option>
-			<option value='vI'>vI</option>
 			<option value='vE'>vE</option>
-			<option value='~I'>~I</option>
-			<option value='#I'>#I</option>
 			<option value='~E'>~E</option>
-			<option value='&lt;&gt;I'>&lt;&gt;I</option>
 			<option value='&lt;&gt;E'>&lt;&gt;E</option>
 <!-- 		<option value='EFQ'>EFQ</option> -->
 			<option value='Flag'>Flag</option>
@@ -133,6 +129,16 @@ THE SOFTWARE.
 			<option value='=I'>=I</option>
 			<option value='=E'>=E</option>
 			<option value='SI/TI'>Derived Rules</option>
+			</select>
+		</td>
+		<td class="intro">
+			<select id="intro">
+				<option value='&amp;I' title="Conjunction Introduction">&and;</option>
+				<option value='vI' title="Disjunction Introduction">&or;</option>
+				<option value='&gt;I' title="Conditional Introduction">&rarr;</option>
+				<option value='~I' title="Negation Introduction">&not;</option>
+				<option value='#I' title="Introduction">⊥</option>
+				<option value='&lt;&gt;I' title="Biconditional Introduction">&harr;</option>
 			</select>
 		</td>
 		<td class='siti'>

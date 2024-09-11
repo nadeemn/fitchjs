@@ -69,8 +69,12 @@ display:inline;
 display:none;
 }
 
-.siti, .dth, .lin {
+.siti, .dth, .lin, .intro {
 display:none;
+}
+
+select#intro {
+  width: 120px;
 }
 
 #importarea {

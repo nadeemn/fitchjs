@@ -18,6 +18,7 @@ function show(id) {
 	var sel = el.options[el.selectedIndex].value;
 	var dth = d3.selectAll('.dth').style("display","none");
 	var siti = d3.selectAll('.siti').style("display","none");
+	var intro = d3.selectAll('.intro').style("display", "none");
 	var lin = d3.selectAll('.lin').style("display","none");
 	if(sel=='Assumption') {
 		document.getElementById('lin').value = '';
@@ -29,7 +30,12 @@ function show(id) {
 		siti.style("display","table-cell");
 		lin.style("display","table-cell");
 		// document.getElementById("siti").focus();
-	} else if(sel!='--Select--' && sel!='Flag' && sel!='=I') {
+	}
+	else if(sel === "introduction") {
+		intro.style("display", "table-cell");
+		lin.style("display","table-cell");
+	}
+	 else if(sel!='--Select--' && sel!='Flag' && sel!='=I') {
 		lin.style("display","inline");
 		// document.getElementById("lin").focus();
 	}
