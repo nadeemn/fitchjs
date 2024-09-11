@@ -78,6 +78,10 @@ function append_line() {
 	var r = document.getElementById('rul').value;
 	var s = [];
 	var l = document.getElementById('lin').value.replace(/ /g,'');
+
+	if (r==="introduction") {
+		r = document.getElementById('intro').value;
+	}
 	if(r=='SI/TI') {
 		r = document.getElementById('siti').value;
 		s = getSeq(r);

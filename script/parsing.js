@@ -215,17 +215,17 @@ function ptou(s) {
 		//case '&' : return '\u2227';
 		//case '\u2227' : return '&';
 		case 'v' : return '\u2228';
-		case '\u2228' : return 'v';
+		//case '\u2228' : return 'v';
 		case '>': return '\u2192';
-		case '\u2192' : return '>';
+		//case '\u2192' : return '>';
 		case '<>': return '\u2194';
-		case '\u2194' : return '<>';
+		//case '\u2194' : return '<>';
 		case '#': return '\u22A5';
-		case '\u22A5' : return '#';
+		//case '\u22A5' : return '#';
 		case 'A': return '\u2200';
-		case '\u2200': return 'A';
+		//case '\u2200': return 'A';
 		case 'E': return '\u2203';
-		case '\u2203' : return 'E';
+		//case '\u2203' : return 'E';
 		default: return s;
 	}
 }
