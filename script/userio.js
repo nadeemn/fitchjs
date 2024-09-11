@@ -563,7 +563,6 @@ document.addEventListener("DOMContentLoaded", () => {
 //function to add Logical symbols to the input element
 
 function insertText(symbol) {
-	console.log(inputArea)
 
 	if (inputArea && (inputArea.tagName === 'INPUT' || inputArea.tagName === 'TEXTAREA')) {
 		const startPos = inputArea.selectionStart;

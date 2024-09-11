@@ -178,7 +178,7 @@ function rmDup(a) {
 // String -> Int
 // Checks if the string contains any inadmissible characters
 function badchar(s) {
-	var x = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz()~&<>=#';
+	var x = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz()~&<>=#∧∨¬→↔⊤⊥∃∀⊢⊨⊥';
 	for(var i=0;i<s.length;i++) {
 		if(x.indexOf(s[i])<0) {
 			return i;
