@@ -82,6 +82,9 @@ function append_line() {
 	if (r==="introduction") {
 		r = document.getElementById('intro').value;
 	}
+	if (r==="elimination") {
+		r = document.getElementById('elim').value;
+	}
 	if(r=='SI/TI') {
 		r = document.getElementById('siti').value;
 		s = getSeq(r);

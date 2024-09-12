@@ -69,11 +69,12 @@ display:inline;
 display:none;
 }
 
-.siti, .dth, .lin, .intro {
+.siti, .dth, .lin, .intro, .elim {
 display:none;
 }
 
-select#intro {
+select#intro,
+select#elim {
   width: 120px;
 }
 

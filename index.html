@@ -102,6 +102,7 @@ THE SOFTWARE.
 		<td>Formula:</td>
 		<td>Rule:</td>
 		<td class="intro">Introduction Rule:</td>
+		<td class="elim">Elimination Rule:</td>
 		<td class='siti'>Derived Rule:</td>
 		<td class='dth'>Depth</td>
 		<td class='lin'>Lines:</td>
@@ -115,19 +116,13 @@ THE SOFTWARE.
 			<option value='Assumption'>Assumption</option>
 			<option value='Reit'>Reit</option>
 			<option value="introduction">Introduction</option>
-			<option value='&amp;E'>&amp;E</option>
-			<option value='&gt;E'>&gt;E</option>
-			<option value='vE'>vE</option>
-			<option value='~E'>~E</option>
-			<option value='&lt;&gt;E'>&lt;&gt;E</option>
+			<option value="elimination">Elimination</option>
 <!-- 		<option value='EFQ'>EFQ</option> -->
 			<option value='Flag'>Flag</option>
 			<option value='EI'>EI</option>
 			<option value='EE'>EE</option>
 			<option value='AI'>AI</option>
 			<option value='AE'>AE</option>
-			<option value='=I'>=I</option>
-			<option value='=E'>=E</option>
 			<option value='SI/TI'>Derived Rules</option>
 			</select>
 		</td>
@@ -139,6 +134,17 @@ THE SOFTWARE.
 				<option value='~I' title="Negation Introduction">&not;</option>
 				<option value='#I' title="Introduction">⊥</option>
 				<option value='&lt;&gt;I' title="Biconditional Introduction">&harr;</option>
+				<option value='=I' title="Identity Introduction">=</option>
+			</select>
+		</td>
+		<td class="elim">
+			<select id="elim">
+				<option value='&amp;E' title="Conjunction Elimination">&and;</option>
+				<option value='vE' title="Disjunction Elimination">&or;</option>
+				<option value='&gt;E' title="Conditional Elimination">&rarr;</option>
+				<option value='~E' title="Negation Elimination">&not;</option>
+				<option value='&lt;&gt;E' title="Biconditional Elimination">&harr;</option>
+				<option value='=E' title="Identity Elimination">=</option>
 			</select>
 		</td>
 		<td class='siti'>

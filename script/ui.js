@@ -19,6 +19,7 @@ function show(id) {
 	var dth = d3.selectAll('.dth').style("display","none");
 	var siti = d3.selectAll('.siti').style("display","none");
 	var intro = d3.selectAll('.intro').style("display", "none");
+	var elem = d3.selectAll('.elim').style("display", "none");
 	var lin = d3.selectAll('.lin').style("display","none");
 	if(sel=='Assumption') {
 		document.getElementById('lin').value = '';
@@ -34,6 +35,10 @@ function show(id) {
 	else if(sel === "introduction") {
 		intro.style("display", "table-cell");
 		lin.style("display","table-cell");
+	}
+	else if(sel === "elimination") {
+		elem.style("display", "table-cell");
+		lin.style("display", "table-cell");
 	}
 	 else if(sel!='--Select--' && sel!='Flag' && sel!='=I') {
 		lin.style("display","inline");
