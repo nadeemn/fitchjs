@@ -538,14 +538,17 @@ function checkifdone() {
 function errmess(n,mess) {
 	var erel = document.getElementById('errord');
 	if(n[0]==0) { // display on red
+		erel.style.display = 'block';
 		erel.style.border = 'solid 1px #FF0000';
 		erel.style.backgroundColor = '#FF9999';
 		erel.innerHTML = mess;
 	} else if(n[0]==1) { // display on blue
+		erel.style.display = 'block';
 		erel.style.border = 'solid 1px #B4BAEA';
 		erel.style.backgroundColor = '#F0F4FF';
 		erel.innerHTML = mess;
 	} else if(n[0]==2) { // display on green
+		erel.style.display = 'block';
 		erel.style.border = 'solid 1px #87D51C';
 		erel.style.backgroundColor = '#E3FFB8';
 		erel.innerHTML = mess;

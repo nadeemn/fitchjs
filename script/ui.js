@@ -2,6 +2,11 @@ function disp(id) {
 	var menu_items = ['appm','expm','refm'];
 	var menu_contents = ['prbt','appt','expt','reft'];
 	var proof_started = PROOF.length>0 || CONCLUSION.length>0;
+	if(id !== "app") {
+		document.getElementsByClassName('buttons')[0].style.display='none';
+	} else {
+		document.getElementsByClassName('buttons')[0].style.display='block';
+	}
 	for(var i=0;i<menu_items.length;i++) {
 		document.getElementById(menu_items[i]).style.backgroundColor = '#DDDDDD';
 	}
