@@ -62,7 +62,7 @@ background:#DDDDDD;
 }
 
 #prbt {
-display:inline;
+display:block;
 }
 
 #appt, #expt, #impt, #SI1, #reft {
@@ -71,6 +71,12 @@ display:none;
 
 .siti, .dth, .lin, .intro, .elim {
 display:none;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 select#intro,
@@ -86,18 +92,20 @@ font-size:medium;
 
 #drvd {
 float:left;
-width:66%;
-padding:5px;
-min-height:100px;
+width:50%;
+padding:8px;
+min-height:200px;
 border:solid 1px #B4BAEA;
 background-color:#F0F4FF;
 }
 
 #errord {
+display: none;
 float:right;
 width:32%;
 padding:2px;
 min-height:100px;
+margin: 0 4px;
 font-family:monospace;
 border:solid 1px #B4BAEA;
 background-color:#F0F4FF;
@@ -235,18 +243,20 @@ padding-left:2em;
 
 #drvd {
 float:left;
-width:66%;
-padding:2px;
-min-height:100px;
+width:50%;
+padding:8px;
+min-height:200px;
 font-family:monospace;
 border:solid 1px #B4BAEA;
 background-color:#F0F4FF;
 }
 
 #errord {
+display: none;
 float:right;
 width:32%;
 padding:2px;
+margin: 0 4px;
 min-height:100px;
 font-family:monospace;
 border:solid 1px #B4BAEA;
