@@ -187,6 +187,10 @@ border:solid 1px #444444;
 width:250px;
 }
 
+.del {
+  fill: red;
+  cursor: pointer;
+}
 /* Class .rule is for tables containing rule guidelines */
 
 #reft table.rule {
