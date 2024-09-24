@@ -89,7 +89,7 @@ function draw() {
 		d3.selectAll(".del")
 			.attr("x",wr+FW)
 			.attr("y",(LH-OS))
-			.html(function(d) {return d.cnt>max && d.cnt==PROOF.length ? "&#x2717" : "";})
+			.html(function(d) {return d.cnt>max && d.cnt==PROOF.length ? "X" : "";})
 			.on("click",function() {clrlast();});	
 	}	
 }
