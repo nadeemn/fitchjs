@@ -48,21 +48,22 @@ THE SOFTWARE.
 </head>
 
 <body>
-
-
-	<table id='menut'>
-		<tr>
-			<td id='appm'>
-				<a href='javascript:void(0);' onclick='disp("app");'><strong>Construct</strong></a>
-			</td>
-			<td id='expm'>
-				<a href='javascript:void(0);' onclick='disp("exp");'><strong>Export / Import</strong></a>
-			</td>
-			<td id='refm'>
-				<a href='javascript:void(0);' onclick='disp("ref");'><strong>Reference</strong></a>
-			</td>
-		</tr>
-	</table>
+	<header class="menu-header">
+		<div class="menu-items">
+			<h2 class="heading">FitchJS Proof Checker</h2>
+			<div class="menut">
+				<div id="appm">
+					<a href='javascript:void(0);' onclick='disp("app");'><strong>Construct</strong></a>
+				</div>
+				<div id="expm">
+					<a href='javascript:void(0);' onclick='disp("exp");'><strong>Export / Import</strong></a>
+				</div>
+				<div id="refm">
+					<a href='javascript:void(0);' onclick='disp("ref");'><strong>Reference</strong></a>
+				</div>
+			</div>
+		</div>
+	</header>
 
 	<div id='githublink'><a href='https://github.com/mrieppel/fitchjs'><img src="img/github.png"
 				style="height:25px;"></img></a></div>
@@ -75,7 +76,8 @@ THE SOFTWARE.
 				<button onclick="insertText('∨')" title="Disjunction" class="logic-input or">&or;</button>
 				<button onclick="insertText('¬')" title="Negation" class="logic-input not">&not;</button>
 				<button onclick="insertText('→')" title="Conditional" class="logic-input conditional">&rarr;</button>
-				<button onclick="insertText('↔')" title="Biconditional" class="logic-input biconditional">&harr;</button>
+				<button onclick="insertText('↔')" title="Biconditional"
+					class="logic-input biconditional">&harr;</button>
 				<button onclick="insertText('∀')" title="For All" class="logic-input forall">&forall;</button>
 				<button onclick="insertText('∃')" title="Exist" class="logic-input exist">&exist;</button>
 				<button onclick="insertText('∈')" title="Belongs to" class="logic-input belongs">&isin;</button>
