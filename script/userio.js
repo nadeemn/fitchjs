@@ -570,6 +570,35 @@ document.addEventListener("DOMContentLoaded", () => {
 	})
 })
 
+//Eventlistener to check and replace the input value
+document.addEventListener('DOMContentLoaded', () => {
+	const currentElement = document.querySelectorAll('#premises, #conclusion, #frm')
+	currentElement.forEach(function(input) {
+		input.addEventListener('keydown', function(event) {
+			
+			const input = event.target;
+			const currentValue = input.value
+			if(event.key === '>') {
+				event.preventDefault();
+				if (currentValue.slice(-1) === '<') {
+					input.value = currentValue.slice(0,-1) + '↔';
+				} else {
+					input.value = currentValue + '→';
+				}
+			}
+			else if(event.key === '~') {
+				event.preventDefault();
+				input.value = currentValue + '¬';
+			}
+			else if(event.key === '&') {
+				event.preventDefault();
+				input.value = currentValue + '∧';
+			}
+		})
+	})
+})
+
+
 //function to add Logical symbols to the input element
 
 function insertText(symbol) {
