@@ -1,6 +1,7 @@
 body {
 font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
 color:#444444;
+background-color: #f4f1deb3;
 }
 
 /* githublink things */
@@ -29,6 +30,37 @@ a:active {color:#4B2EDE;text-decoration:none;}  /* selected link */
 
 /* menu things */
 
+.menu-header {
+  background-color: #002A4E;
+  height: 80px;
+}
+
+.menu-items {
+  display: flex;
+  padding: 5px;
+}
+
+.heading {
+  color: white;
+  font-size: 25px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.menut {
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.menut a {
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+}
+
 #menut {
 border-collapse:collapse;
 }
@@ -47,19 +79,21 @@ padding:5px;
 }
 
 #menu {
-border:solid 1px #444444;
+border:solid 1px #d4d4d5;
+background-color: white;
 padding:10px;
 margin-bottom:10px;
 font-size:10pt;
+margin: 10px 0;
 }
 
-#appm {
+/* #appm {
 background:white;
 }
 
 #repm, #expm, #refm {
 background:#DDDDDD;
-}
+} */
 
 #prbt {
 display:block;
