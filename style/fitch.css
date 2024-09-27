@@ -28,6 +28,11 @@ a:hover {color:#4B2EDE;text-decoration:none;}  /* mouse over link */
 a:active {color:#4B2EDE;text-decoration:none;}  /* selected link */
 
 
+.contents {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 /* menu things */
 
 .menu-header {
@@ -79,6 +84,7 @@ padding:5px;
 }
 
 #menu {
+width: 55%;
 border:solid 1px #d4d4d5;
 background-color: white;
 padding:10px;
@@ -99,7 +105,7 @@ background:#DDDDDD;
 display:block;
 }
 
-#appt, #expt, #impt, #SI1, #reft {
+#appt, #expt, #impt, #SI1 {
 display:none;
 }
 
@@ -160,9 +166,18 @@ padding-bottom:0px;
 /* REFERENCE SECTION STUFF */
 
 #reft {
+width: 40%;
+background-color: white;
+border: 1px solid #d4d4d5;
+margin: 10px 0;
 border-collapse:collapse;
 vertical-align:top;
 text-align:left;
+}
+
+#reft>tbody {
+  display: inline-block;
+  padding: 10px;
 }
 
 #reft>tbody>tr>th {
@@ -203,7 +218,7 @@ margin:0px;
 }
 
 #reft div.note {
-width:750px;
+width:100%;
 }
 
 #reft div.note a:visited {
