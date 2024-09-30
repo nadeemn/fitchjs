@@ -93,6 +93,10 @@ font-size:10pt;
 margin: 10px 0;
 }
 
+#premises , #conclusion {
+  height: 20px;
+}
+
 /* #appm {
 background:white;
 }
