@@ -58,9 +58,9 @@ THE SOFTWARE.
 				<div id="expm">
 					<a href='javascript:void(0);' onclick='disp("exp");'><strong>Export / Import</strong></a>
 				</div>
-				<div id="refm">
+				<!-- <div id="refm">
 					<a href='javascript:void(0);' onclick='disp("ref");'><strong>Reference</strong></a>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</header>
@@ -68,15 +68,16 @@ THE SOFTWARE.
 	<div id='githublink'><a href='https://github.com/mrieppel/fitchjs'><img src="img/github.png"
 				style="height:25px;"></img></a></div>
 
+	<div class="contents">
 	<div id='menu' class="clearfix">
 
 		<div class="buttons">
 			<div class="button-wrapper">
-				<button onclick="insertText('∧')" title="Conjunction" class="logic-input and">&and;</button>
+				<button onclick="insertText('∧')" title="Press & symbol" class="logic-input and">&and;</button>
 				<button onclick="insertText('∨')" title="Disjunction" class="logic-input or">&or;</button>
-				<button onclick="insertText('¬')" title="Negation" class="logic-input not">&not;</button>
-				<button onclick="insertText('→')" title="Conditional" class="logic-input conditional">&rarr;</button>
-				<button onclick="insertText('↔')" title="Biconditional"
+				<button onclick="insertText('¬')" title="Press the ~ symbol" class="logic-input not">&not;</button>
+				<button onclick="insertText('→')" title="Press the > symbol" class="logic-input conditional">&rarr;</button>
+				<button onclick="insertText('↔')" title="Press the <> symbol"
 					class="logic-input biconditional">&harr;</button>
 				<button onclick="insertText('∀')" title="For All" class="logic-input forall">&forall;</button>
 				<button onclick="insertText('∃')" title="Exist" class="logic-input exist">&exist;</button>
@@ -255,400 +256,564 @@ You can also paste a previously exported proof (in the plain text format) in thi
 			</tr>
 		</table>
 
+	<div id='drvd'>
 
+		<svg id='drv' width='300' height='30'></svg>
 
-		<table id='reft'>
+		<br>
+		<br>
 
-			<tr>
-				<td><a href='javascript:void(0);' onclick='exp("sync");' id='synctrigger'>[+] Symbols</a></td>
-			</tr>
+		<br>
 
-			<tr>
+		<svg id='gls' width='300' height='0'></svg>
+		<br>
+		<svg id='con' width='300' height='0'></svg>
 
-				<td id='sync'>
-
-					<br>
-					<div class='note'>
-						NOTE: the program lets you drop the outermost parentheses on formulas with a binary main
-						connective, e.g. P>(Q&R) rather than (P>(Q&R)). Since the letter 'v' is used for disjunction, it
-						can't be used as a variable or individual constant. Note also that quantifiers are enclosed by
-						parentheses, e.g. (Ex)Rax rather than ExRax, or (Ax)(Fx>Gx) rather than Ax(Fx>Gx).
-					</div>
-					<br>
-
-					<table class='info'>
-						<tr>
-							<th colspan='2'>Logical Symbols</th>
-						</tr>
-						<tr>
-							<td>Negation</td>
-							<td>~</td>
-						</tr>
-						<tr>
-							<td>Conjunction</td>
-							<td>&amp;</td>
-						</tr>
-						<tr>
-							<td>Disjunction</td>
-							<td>v</td>
-						</tr>
-						<tr>
-							<td>Conditional</td>
-							<td>&gt;</td>
-						</tr>
-						<tr>
-							<td>Biconditional</td>
-							<td>&lt;&gt;</td>
-						</tr>
-						<tr>
-							<td>Absurdity</td>
-							<td>#</td>
-						</tr>
-						<tr>
-							<td>Existential Quantifier</td>
-							<td>E</td>
-						</tr>
-						<tr>
-							<td>Universal Quantifier</td>
-							<td>A</td>
-						</tr>
-						<tr>
-							<td>Identity Relation</td>
-							<td>=</td>
-						</tr>
-					</table>
-
-					<table class='info'>
-						<tr>
-							<th colspan='2'>Non-Logical Symbols</th>
-						</tr>
-						<tr>
-							<td>Individual Constants</td>
-							<td>a,b,c,d,e,f...</td>
-						</tr>
-						<tr>
-							<td>Individual Variables</td>
-							<td>u,w,x,y,z...</td>
-						</tr>
-						<tr>
-							<td>Propositional Constants</td>
-							<td>A ... Z</td>
-						</tr>
-						<tr>
-							<td>Predicate Constants (any arity)</td>
-							<td>A ... Z</td>
-						</tr>
-					</table>
-
-					<table class='info'>
-						<tr>
-							<th><a name='samplewff'>Sample Wffs</a></th>
-						</tr>
-						<tr>
-							<td>P</td>
-						</tr>
-						<tr>
-							<td>((GvH)&gt;F)</td>
-						</tr>
-						<tr>
-							<td>(#&gt;P)</td>
-						</tr>
-						<tr>
-							<td>Fa</td>
-						</tr>
-						<tr>
-							<td>(Fa &amp; Rab)</td>
-						</tr>
-						<tr>
-							<td>(Ex)Rxb</td>
-						</tr>
-						<tr>
-							<td>(Ex)(Ay)(Rxy &lt;&gt; Ryx)</td>
-						</tr>
-						<tr>
-							<td>(Ax)((Fx &amp; (Ey)Rxy) &gt; (Ey)(Fy v Ryx))</td>
-						</tr>
-						<tr>
-							<td>((Ax)(Fx &gt; (Ey)Rxy) &gt; (Ey)Gy)</td>
-						</tr>
-					</table>
-
-				</td>
-			</tr>
-
-
-			<tr>
-				<td><a href='javascript:void(0);' onclick='exp("srulc");' id='srulctrigger'>[+] Rules for Sentential
-						Logic</a></td>
-			</tr>
-
-			<tr>
-				<td id='srulc'>
-					<br>
-
-					<div class="note">
-						NOTE: the order in which rule lines are cited is important for multi-line rules. For example, in
-						an application of conditional elimination with citation "j,k &rarr;E", line j must be the
-						conditional, and line k must be its antecedent, <em>even if</em> line k actually
-						<em>precedes</em> line j in the proof. The only multi-line rules which are set up so that order
-						doesn't matter are &amp;I and &perp;I.
-					</div>
-					<br>
-
-					<table class='rulcont'>
-						<tr>
-							<td class='brd'>
-								<table class='rule'>
-									<tr>
-										<th colspan='2'>Rule of &amp;I</th>
-									</tr>
-									<tr>
-										<td class='cntc'>j</td>
-										<td class='frmc'>
-											<div>
-												<div></div>
-												<p>p</p>
-											</div>
-										</td>
-										<td class='rulc'></td>
-									</tr>
-									<tr>
-										<td class='cntc'></td>
-										<td class='frmc'>
-											<div>
-												<p>:</p>
-											</div>
-										</td>
-										<td class='rulc'></td>
-									</tr>
-									<tr>
-										<td class='cntc'>k</td>
-										<td class='frmc'>
-											<div>
-												<p>q</p>
-											</div>
-										</td>
-										<td class='rulc'></td>
-									</tr>
-									<tr>
-										<td class='cntc'></td>
-										<td class='frmc'>
-											<div>
-												<p>:</p>
-											</div>
-										</td>
-										<td class='rulc'></td>
-									</tr>
-									<tr>
-										<td class='cntc'></td>
-										<td class='frmc'>
-											<div>
-												<p>p &amp; q</p>
-											</div>
-										</td>
-										<td class='rulc'>
-											<div>j,k &amp;I</div>
-										</td>
-									</tr>
-								</table>
-							</td>
-
-							<td class='brd'>
-								<table class='rule'>
-									<tr>
-										<th colspan='2'>Rule of &amp;E</th>
-									</tr>
-									<tr>
-										<td class='cntc'>j</td>
-										<td class='frmc'>
-											<div>
-												<p>p &amp; q</p>
-											</div>
-										</td>
-										<td class='rulc'></td>
-									</tr>
-									<tr>
-										<td class='cntc'></td>
-										<td class='frmc'>
-											<div>
-												<p>:</p>
-											</div>
-										</td>
-										<td class='rulc'></td>
-									</tr>
-									<tr>
-										<td class='cntc'></td>
-										<td class='frmc'>
-											<div>
-												<p>p</p>
-											</div>
-										</td>
-										<td class='rulc'>
-											<div>j &amp;E</div>
-										</td>
-									</tr>
-								</table>
-							</td>
-
-							<td class='brd'>
-								<table class='rule'>
-									<tr>
-										<th colspan='2'>Rule of &or;I</th>
-									</tr>
-									<tr>
-										<td class='cntc'>j</td>
-										<td class='frmc'>
-											<div>
-												<p>p</p>
-											</div>
-										</td>
-										<td class='rulc'></td>
-									</tr>
-									<tr>
-										<td class='cntc'></td>
-										<td class='frmc'>
-											<div>
-												<p>:</p>
-											</div>
-										</td>
-										<td class='rulc'></td>
-									</tr>
-									<tr>
-										<td class='cntc'></td>
-										<td class='frmc'>
-											<div>
-												<p>p v q</p>
-											</div>
-										</td>
-										<td class='rulc'>
-											<div>j vI</div>
-										</td>
-									</tr>
-								</table>
-							</td>
-
-						</tr>
-						<tr>
-
-							<td class='brd'>
-								<table class='rule'>
-									<tr>
-										<th colspan='2'>Rule of &or;E</th>
-									</tr>
-									<tr>
-										<td class='cntc'>g</td>
-										<td class='frmc'>
-											<div>
-												<p>p v q</p>
-											</div>
-										</td>
-										<td class='rulc'></td>
-									</tr>
-									<tr>
-										<td class='cntc'></td>
-										<td class='frmc'>
-											<div>
-												<p>:</p>
-											</div>
-										</td>
-										<td class='rulc'></td>
-									</tr>
-									<tr>
-										<td class='cntc'>h</td>
-										<td class='frmc'>
-											<div>
-												<div>
-													<div class='fbar'></div>
-													<p>p</p>
-												</div>
-											</div>
-										</td>
-										<td class='rulc'></td>
-									</tr>
-									<tr>
-										<td class='cntc'></td>
-										<td class='frmc'>
-											<div>
-												<div>
-													<p>:</p>
-												</div>
-											</div>
-										</td>
-										<td class='rulc'></td>
-									</tr>
-									<tr>
-										<td class='cntc'>i</td>
-										<td class='frmc'>
-											<div>
-												<div>
-													<p>r</p>
-												</div>
-											</div>
-										</td>
-										<td class='rulc'></td>
-									</tr>
-									<tr>
-										<td class='cntc'></td>
-										<td class='frmc'>
-											<div>
-												<p></p>
-											</div>
 	</div>
+	<div id='errord'>
+	</div>
+	</div> <!-- close menu div -->
+
+	<table id='reft'>
+
+		<tr>
+			<td><a href='javascript:void(0);' onclick='exp("sync");' id='synctrigger'>[+] Symbols</a></td>
+		</tr>
+
+		<tr>
+
+			<td id='sync'>
+
+				<br>
+				<div class='note'>
+					NOTE: the program lets you drop the outermost parentheses on formulas with a binary main
+					connective, e.g. P>(Q&R) rather than (P>(Q&R)). Since the letter 'v' is used for disjunction, it
+					can't be used as a variable or individual constant. Note also that quantifiers are enclosed by
+					parentheses, e.g. (Ex)Rax rather than ExRax, or (Ax)(Fx>Gx) rather than Ax(Fx>Gx).
+				</div>
+				<br>
+
+				<table class='info'>
+					<tr>
+						<th colspan='2'>Logical Symbols</th>
+					</tr>
+					<tr>
+						<td>Negation</td>
+						<td>~</td>
+					</tr>
+					<tr>
+						<td>Conjunction</td>
+						<td>&amp;</td>
+					</tr>
+					<tr>
+						<td>Disjunction</td>
+						<td>v</td>
+					</tr>
+					<tr>
+						<td>Conditional</td>
+						<td>&gt;</td>
+					</tr>
+					<tr>
+						<td>Biconditional</td>
+						<td>&lt;&gt;</td>
+					</tr>
+					<tr>
+						<td>Absurdity</td>
+						<td>#</td>
+					</tr>
+					<tr>
+						<td>Existential Quantifier</td>
+						<td>E</td>
+					</tr>
+					<tr>
+						<td>Universal Quantifier</td>
+						<td>A</td>
+					</tr>
+					<tr>
+						<td>Identity Relation</td>
+						<td>=</td>
+					</tr>
+				</table>
+
+				<table class='info'>
+					<tr>
+						<th colspan='2'>Non-Logical Symbols</th>
+					</tr>
+					<tr>
+						<td>Individual Constants</td>
+						<td>a,b,c,d,e,f...</td>
+					</tr>
+					<tr>
+						<td>Individual Variables</td>
+						<td>u,w,x,y,z...</td>
+					</tr>
+					<tr>
+						<td>Propositional Constants</td>
+						<td>A ... Z</td>
+					</tr>
+					<tr>
+						<td>Predicate Constants (any arity)</td>
+						<td>A ... Z</td>
+					</tr>
+				</table>
+
+				<table class='info'>
+					<tr>
+						<th><a name='samplewff'>Sample Wffs</a></th>
+					</tr>
+					<tr>
+						<td>P</td>
+					</tr>
+					<tr>
+						<td>((GvH)&gt;F)</td>
+					</tr>
+					<tr>
+						<td>(#&gt;P)</td>
+					</tr>
+					<tr>
+						<td>Fa</td>
+					</tr>
+					<tr>
+						<td>(Fa &amp; Rab)</td>
+					</tr>
+					<tr>
+						<td>(Ex)Rxb</td>
+					</tr>
+					<tr>
+						<td>(Ex)(Ay)(Rxy &lt;&gt; Ryx)</td>
+					</tr>
+					<tr>
+						<td>(Ax)((Fx &amp; (Ey)Rxy) &gt; (Ey)(Fy v Ryx))</td>
+					</tr>
+					<tr>
+						<td>((Ax)(Fx &gt; (Ey)Rxy) &gt; (Ey)Gy)</td>
+					</tr>
+				</table>
+
+			</td>
+		</tr>
+
+
+		<tr>
+			<td><a href='javascript:void(0);' onclick='exp("srulc");' id='srulctrigger'>[+] Rules for Sentential
+					Logic</a></td>
+		</tr>
+
+		<tr>
+			<td id='srulc'>
+				<br>
+
+				<div class="note">
+					NOTE: the order in which rule lines are cited is important for multi-line rules. For example, in
+					an application of conditional elimination with citation "j,k &rarr;E", line j must be the
+					conditional, and line k must be its antecedent, <em>even if</em> line k actually
+					<em>precedes</em> line j in the proof. The only multi-line rules which are set up so that order
+					doesn't matter are &amp;I and &perp;I.
+				</div>
+				<br>
+
+				<table class='rulcont'>
+					<tr>
+						<td class='brd'>
+							<table class='rule'>
+								<tr>
+									<th colspan='2'>Rule of &amp;I</th>
+								</tr>
+								<tr>
+									<td class='cntc'>j</td>
+									<td class='frmc'>
+										<div>
+											<div></div>
+											<p>p</p>
+										</div>
+									</td>
+									<td class='rulc'></td>
+								</tr>
+								<tr>
+									<td class='cntc'></td>
+									<td class='frmc'>
+										<div>
+											<p>:</p>
+										</div>
+									</td>
+									<td class='rulc'></td>
+								</tr>
+								<tr>
+									<td class='cntc'>k</td>
+									<td class='frmc'>
+										<div>
+											<p>q</p>
+										</div>
+									</td>
+									<td class='rulc'></td>
+								</tr>
+								<tr>
+									<td class='cntc'></td>
+									<td class='frmc'>
+										<div>
+											<p>:</p>
+										</div>
+									</td>
+									<td class='rulc'></td>
+								</tr>
+								<tr>
+									<td class='cntc'></td>
+									<td class='frmc'>
+										<div>
+											<p>p &amp; q</p>
+										</div>
+									</td>
+									<td class='rulc'>
+										<div>j,k &amp;I</div>
+									</td>
+								</tr>
+							</table>
+						</td>
+
+						<td class='brd'>
+							<table class='rule'>
+								<tr>
+									<th colspan='2'>Rule of &amp;E</th>
+								</tr>
+								<tr>
+									<td class='cntc'>j</td>
+									<td class='frmc'>
+										<div>
+											<p>p &amp; q</p>
+										</div>
+									</td>
+									<td class='rulc'></td>
+								</tr>
+								<tr>
+									<td class='cntc'></td>
+									<td class='frmc'>
+										<div>
+											<p>:</p>
+										</div>
+									</td>
+									<td class='rulc'></td>
+								</tr>
+								<tr>
+									<td class='cntc'></td>
+									<td class='frmc'>
+										<div>
+											<p>p</p>
+										</div>
+									</td>
+									<td class='rulc'>
+										<div>j &amp;E</div>
+									</td>
+								</tr>
+							</table>
+						</td>
+
+						<td class='brd'>
+							<table class='rule'>
+								<tr>
+									<th colspan='2'>Rule of &or;I</th>
+								</tr>
+								<tr>
+									<td class='cntc'>j</td>
+									<td class='frmc'>
+										<div>
+											<p>p</p>
+										</div>
+									</td>
+									<td class='rulc'></td>
+								</tr>
+								<tr>
+									<td class='cntc'></td>
+									<td class='frmc'>
+										<div>
+											<p>:</p>
+										</div>
+									</td>
+									<td class='rulc'></td>
+								</tr>
+								<tr>
+									<td class='cntc'></td>
+									<td class='frmc'>
+										<div>
+											<p>p v q</p>
+										</div>
+									</td>
+									<td class='rulc'>
+										<div>j vI</div>
+									</td>
+								</tr>
+							</table>
+						</td>
+
+					</tr>
+					<tr>
+
+						<td class='brd'>
+							<table class='rule'>
+								<tr>
+									<th colspan='2'>Rule of &or;E</th>
+								</tr>
+								<tr>
+									<td class='cntc'>g</td>
+									<td class='frmc'>
+										<div>
+											<p>p v q</p>
+										</div>
+									</td>
+									<td class='rulc'></td>
+								</tr>
+								<tr>
+									<td class='cntc'></td>
+									<td class='frmc'>
+										<div>
+											<p>:</p>
+										</div>
+									</td>
+									<td class='rulc'></td>
+								</tr>
+								<tr>
+									<td class='cntc'>h</td>
+									<td class='frmc'>
+										<div>
+											<div>
+												<div class='fbar'></div>
+												<p>p</p>
+											</div>
+										</div>
+									</td>
+									<td class='rulc'></td>
+								</tr>
+								<tr>
+									<td class='cntc'></td>
+									<td class='frmc'>
+										<div>
+											<div>
+												<p>:</p>
+											</div>
+										</div>
+									</td>
+									<td class='rulc'></td>
+								</tr>
+								<tr>
+									<td class='cntc'>i</td>
+									<td class='frmc'>
+										<div>
+											<div>
+												<p>r</p>
+											</div>
+										</div>
+									</td>
+									<td class='rulc'></td>
+								</tr>
+								<tr>
+									<td class='cntc'></td>
+									<td class='frmc'>
+										<div>
+											<p></p>
+										</div>
+</div>
+</td>
+<td class='rulc'></td>
+</tr>
+<tr>
+	<td class='cntc'>j</td>
+	<td class='frmc'>
+		<div>
+			<div>
+				<div class='fbar'></div>
+				<p>q</p>
+			</div>
+		</div>
 	</td>
 	<td class='rulc'></td>
-	</tr>
-	<tr>
-		<td class='cntc'>j</td>
-		<td class='frmc'>
+</tr>
+<tr>
+	<td class='cntc'></td>
+	<td class='frmc'>
+		<div>
 			<div>
-				<div>
-					<div class='fbar'></div>
-					<p>q</p>
-				</div>
+				<p>:</p>
 			</div>
-		</td>
-		<td class='rulc'></td>
-	</tr>
-	<tr>
-		<td class='cntc'></td>
-		<td class='frmc'>
-			<div>
-				<div>
-					<p>:</p>
-				</div>
-			</div>
-		</td>
-		<td class='rulc'></td>
-	</tr>
-	<tr>
-		<td class='cntc'>k</td>
-		<td class='frmc'>
-			<div>
-				<div>
-					<p>r</p>
-				</div>
-			</div>
-		</td>
-		<td class='rulc'></td>
-	</tr>
-	<tr>
-		<td class='cntc'></td>
-		<td class='frmc'>
+		</div>
+	</td>
+	<td class='rulc'></td>
+</tr>
+<tr>
+	<td class='cntc'>k</td>
+	<td class='frmc'>
+		<div>
 			<div>
 				<p>r</p>
 			</div>
-		</td>
-		<td class='rulc'>
-			<div>g,h-i,j-k vE</div>
-		</td>
-	</tr>
+		</div>
+	</td>
+	<td class='rulc'></td>
+</tr>
+<tr>
+	<td class='cntc'></td>
+	<td class='frmc'>
+		<div>
+			<p>r</p>
+		</div>
+	</td>
+	<td class='rulc'>
+		<div>g,h-i,j-k vE</div>
+	</td>
+</tr>
+</table>
+</td>
+
+<td class='brd'>
+	<table class='rule'>
+		<tr>
+			<th colspan='2'>Rule of ~I</th>
+		</tr>
+		<tr>
+			<td class='cntc'>j</td>
+			<td class='frmc'>
+				<div>
+					<div>
+						<div class='fbar'></div>
+						<p>p</p>
+					</div>
+				</div>
+			</td>
+			<td class='rulc'></td>
+		</tr>
+		<tr>
+			<td class='cntc'></td>
+			<td class='frmc'>
+				<div>
+					<div>
+						<p>:</p>
+					</div>
+				</div>
+			</td>
+			<td class='rulc'></td>
+		</tr>
+		<tr>
+			<td class='cntc'>k</td>
+			<td class='frmc'>
+				<div>
+					<div>
+						<p>#</p>
+					</div>
+				</div>
+			</td>
+			<td class='rulc'></td>
+		</tr>
+		<tr>
+			<td class='cntc'></td>
+			<td class='frmc'>
+				<div>
+					<p>~p</p>
+				</div>
+			</td>
+			<td class='rulc'>
+				<div>j-k ~I</div>
+			</td>
+		</tr>
 	</table>
+</td>
+
+<td class='brd'>
+	<table class='rule'>
+		<tr>
+			<th colspan='2'>Rule of &perp;I</th>
+		</tr>
+		<tr>
+			<td class='cntc'>j</td>
+			<td class='frmc'>
+				<div>
+					<p>~p</p>
+				</div>
+			</td>
+			<td class='rulc'></td>
+		</tr>
+		<tr>
+			<td class='cntc'></td>
+			<td class='frmc'>
+				<div>
+					<p>:</p>
+				</div>
+			</td>
+			<td class='rulc'></td>
+		</tr>
+		<tr>
+			<td class='cntc'>k</td>
+			<td class='frmc'>
+				<div>
+					<p>p</p>
+				</div>
+			</td>
+			<td class='rulc'></td>
+		</tr>
+		<tr>
+			<td class='cntc'></td>
+			<td class='frmc'>
+				<div>
+					<p>:</p>
+				</div>
+			</td>
+			<td class='rulc'></td>
+		</tr>
+		<tr>
+			<td class='cntc'></td>
+			<td class='frmc'>
+				<div>
+					<p>#</p>
+				</div>
+			</td>
+			<td class='rulc'>
+				<div>j,k #I</div>
+			</td>
+		</tr>
+	</table>
+</td>
+
+</tr>
+<tr>
+
+	<td class='brd'>
+		<table class='rule'>
+			<tr>
+				<th colspan='2'>Rule of ~E</th>
+			</tr>
+			<tr>
+				<td class='cntc'>j</td>
+				<td class='frmc'>
+					<div>
+						<p>~~p</p>
+					</div>
+				</td>
+				<td class='rulc'></td>
+			</tr>
+			<tr>
+				<td class='cntc'></td>
+				<td class='frmc'>
+					<div>
+						<p>:</p>
+					</div>
+				</td>
+				<td class='rulc'></td>
+			</tr>
+			<tr>
+				<td class='cntc'></td>
+				<td class='frmc'>
+					<div>
+						<p>p</p>
+					</div>
+				</td>
+				<td class='rulc'>
+					<div>j ~E
+				</td>
+			</tr>
+		</table>
 	</td>
 
 	<td class='brd'>
 		<table class='rule'>
 			<tr>
-				<th colspan='2'>Rule of ~I</th>
+				<th colspan='4'>Rule of &rarr;I</th>
 			</tr>
 			<tr>
 				<td class='cntc'>j</td>
@@ -678,7 +843,7 @@ You can also paste a previously exported proof (in the plain text format) in thi
 				<td class='frmc'>
 					<div>
 						<div>
-							<p>#</p>
+							<p>q</p>
 						</div>
 					</div>
 				</td>
@@ -688,11 +853,11 @@ You can also paste a previously exported proof (in the plain text format) in thi
 				<td class='cntc'></td>
 				<td class='frmc'>
 					<div>
-						<p>~p</p>
+						<p>p &gt; q</p>
 					</div>
 				</td>
 				<td class='rulc'>
-					<div>j-k ~I</div>
+					<div>j-k &gt;I</div>
 				</td>
 			</tr>
 		</table>
@@ -701,13 +866,13 @@ You can also paste a previously exported proof (in the plain text format) in thi
 	<td class='brd'>
 		<table class='rule'>
 			<tr>
-				<th colspan='2'>Rule of &perp;I</th>
+				<th colspan='2'>Rule of &rarr;E</th>
 			</tr>
 			<tr>
 				<td class='cntc'>j</td>
 				<td class='frmc'>
 					<div>
-						<p>~p</p>
+						<p>p &gt; q</p>
 					</div>
 				</td>
 				<td class='rulc'></td>
@@ -743,757 +908,592 @@ You can also paste a previously exported proof (in the plain text format) in thi
 				<td class='cntc'></td>
 				<td class='frmc'>
 					<div>
-						<p>#</p>
+						<p>q</p>
 					</div>
 				</td>
 				<td class='rulc'>
-					<div>j,k #I</div>
+					<div>j,k &gt;E</div>
+				</td>
+			</tr>
+		</table>
+
+	</td>
+
+
+
+</tr>
+<tr>
+
+	<td class='brd'>
+		<table class='rule'>
+			<tr>
+				<th colspan='2'>Rule of &harr;I</th>
+			</tr>
+			<tr>
+				<td class='cntc'>h</td>
+				<td class='frmc'>
+					<div>
+						<div>
+							<div class='fbar'></div>
+							<p>p</p>
+						</div>
+					</div>
+				</td>
+				<td class='rulc'></td>
+			</tr>
+			<tr>
+				<td class='cntc'></td>
+				<td class='frmc'>
+					<div>
+						<div>
+							<p>:</p>
+						</div>
+					</div>
+				</td>
+				<td class='rulc'></td>
+			</tr>
+			<tr>
+				<td class='cntc'>i</td>
+				<td class='frmc'>
+					<div>
+						<div>
+							<p>q</p>
+						</div>
+					</div>
+				</td>
+				<td class='rulc'></td>
+			</tr>
+			<tr>
+				<td class='cntc'></td>
+				<td class='frmc'>
+					<div>
+						<p></p>
+					</div>
+					</div>
+				</td>
+				<td class='rulc'></td>
+			</tr>
+			<tr>
+				<td class='cntc'>j</td>
+				<td class='frmc'>
+					<div>
+						<div>
+							<div class='fbar'></div>
+							<p>q</p>
+						</div>
+					</div>
+				</td>
+				<td class='rulc'></td>
+			</tr>
+			<tr>
+				<td class='cntc'></td>
+				<td class='frmc'>
+					<div>
+						<div>
+							<p>:</p>
+						</div>
+					</div>
+				</td>
+				<td class='rulc'></td>
+			</tr>
+			<tr>
+				<td class='cntc'>k</td>
+				<td class='frmc'>
+					<div>
+						<div>
+							<p>p</p>
+						</div>
+					</div>
+				</td>
+				<td class='rulc'></td>
+			</tr>
+			<tr>
+				<td class='cntc'></td>
+				<td class='frmc'>
+					<div>
+						<p>p &lt;&gt; q</p>
+					</div>
+				</td>
+				<td class='rulc'>
+					<div>h-i,j-k &lt;&gt;I</div>
+				</td>
+			</tr>
+		</table>
+
+	</td>
+
+	<td class='brd'>
+		<table class='rule'>
+			<tr>
+				<th colspan='2'>Rule of &harr;E</th>
+			</tr>
+			<tr>
+				<td class='cntc'>j</td>
+				<td class='frmc'>
+					<div>
+						<p>p &lt;&gt; q</p>
+					</div>
+				</td>
+				<td class='rulc'></td>
+			</tr>
+			<tr>
+				<td class='cntc'></td>
+				<td class='frmc'>
+					<div>
+						<p>:</p>
+					</div>
+				</td>
+				<td class='rulc'></td>
+			</tr>
+			<tr>
+				<td class='cntc'>k</td>
+				<td class='frmc'>
+					<div>
+						<p>p</p>
+					</div>
+				</td>
+				<td class='rulc'></td>
+			</tr>
+			<tr>
+				<td class='cntc'></td>
+				<td class='frmc'>
+					<div>
+						<p>:</p>
+					</div>
+				</td>
+				<td class='rulc'></td>
+			</tr>
+			<tr>
+				<td class='cntc'></td>
+				<td class='frmc'>
+					<div>
+						<p>q</p>
+					</div>
+				</td>
+				<td class='rulc'>
+					<div>j,k &lt;&gt;E</div>
 				</td>
 			</tr>
 		</table>
 	</td>
 
-	</tr>
-	<tr>
-
-		<td class='brd'>
-			<table class='rule'>
-				<tr>
-					<th colspan='2'>Rule of ~E</th>
-				</tr>
-				<tr>
-					<td class='cntc'>j</td>
-					<td class='frmc'>
-						<div>
-							<p>~~p</p>
-						</div>
-					</td>
-					<td class='rulc'></td>
-				</tr>
-				<tr>
-					<td class='cntc'></td>
-					<td class='frmc'>
-						<div>
-							<p>:</p>
-						</div>
-					</td>
-					<td class='rulc'></td>
-				</tr>
-				<tr>
-					<td class='cntc'></td>
-					<td class='frmc'>
-						<div>
-							<p>p</p>
-						</div>
-					</td>
-					<td class='rulc'>
-						<div>j ~E
-					</td>
-				</tr>
-			</table>
-		</td>
-
-		<td class='brd'>
-			<table class='rule'>
-				<tr>
-					<th colspan='4'>Rule of &rarr;I</th>
-				</tr>
-				<tr>
-					<td class='cntc'>j</td>
-					<td class='frmc'>
-						<div>
-							<div>
-								<div class='fbar'></div>
-								<p>p</p>
-							</div>
-						</div>
-					</td>
-					<td class='rulc'></td>
-				</tr>
-				<tr>
-					<td class='cntc'></td>
-					<td class='frmc'>
-						<div>
-							<div>
-								<p>:</p>
-							</div>
-						</div>
-					</td>
-					<td class='rulc'></td>
-				</tr>
-				<tr>
-					<td class='cntc'>k</td>
-					<td class='frmc'>
-						<div>
-							<div>
-								<p>q</p>
-							</div>
-						</div>
-					</td>
-					<td class='rulc'></td>
-				</tr>
-				<tr>
-					<td class='cntc'></td>
-					<td class='frmc'>
-						<div>
-							<p>p &gt; q</p>
-						</div>
-					</td>
-					<td class='rulc'>
-						<div>j-k &gt;I</div>
-					</td>
-				</tr>
-			</table>
-		</td>
-
-		<td class='brd'>
-			<table class='rule'>
-				<tr>
-					<th colspan='2'>Rule of &rarr;E</th>
-				</tr>
-				<tr>
-					<td class='cntc'>j</td>
-					<td class='frmc'>
-						<div>
-							<p>p &gt; q</p>
-						</div>
-					</td>
-					<td class='rulc'></td>
-				</tr>
-				<tr>
-					<td class='cntc'></td>
-					<td class='frmc'>
-						<div>
-							<p>:</p>
-						</div>
-					</td>
-					<td class='rulc'></td>
-				</tr>
-				<tr>
-					<td class='cntc'>k</td>
-					<td class='frmc'>
-						<div>
-							<p>p</p>
-						</div>
-					</td>
-					<td class='rulc'></td>
-				</tr>
-				<tr>
-					<td class='cntc'></td>
-					<td class='frmc'>
-						<div>
-							<p>:</p>
-						</div>
-					</td>
-					<td class='rulc'></td>
-				</tr>
-				<tr>
-					<td class='cntc'></td>
-					<td class='frmc'>
-						<div>
-							<p>q</p>
-						</div>
-					</td>
-					<td class='rulc'>
-						<div>j,k &gt;E</div>
-					</td>
-				</tr>
-			</table>
-
-		</td>
-
-
-
-	</tr>
-	<tr>
-
-		<td class='brd'>
-			<table class='rule'>
-				<tr>
-					<th colspan='2'>Rule of &harr;I</th>
-				</tr>
-				<tr>
-					<td class='cntc'>h</td>
-					<td class='frmc'>
-						<div>
-							<div>
-								<div class='fbar'></div>
-								<p>p</p>
-							</div>
-						</div>
-					</td>
-					<td class='rulc'></td>
-				</tr>
-				<tr>
-					<td class='cntc'></td>
-					<td class='frmc'>
-						<div>
-							<div>
-								<p>:</p>
-							</div>
-						</div>
-					</td>
-					<td class='rulc'></td>
-				</tr>
-				<tr>
-					<td class='cntc'>i</td>
-					<td class='frmc'>
-						<div>
-							<div>
-								<p>q</p>
-							</div>
-						</div>
-					</td>
-					<td class='rulc'></td>
-				</tr>
-				<tr>
-					<td class='cntc'></td>
-					<td class='frmc'>
-						<div>
-							<p></p>
-						</div>
-						</div>
-					</td>
-					<td class='rulc'></td>
-				</tr>
-				<tr>
-					<td class='cntc'>j</td>
-					<td class='frmc'>
-						<div>
-							<div>
-								<div class='fbar'></div>
-								<p>q</p>
-							</div>
-						</div>
-					</td>
-					<td class='rulc'></td>
-				</tr>
-				<tr>
-					<td class='cntc'></td>
-					<td class='frmc'>
-						<div>
-							<div>
-								<p>:</p>
-							</div>
-						</div>
-					</td>
-					<td class='rulc'></td>
-				</tr>
-				<tr>
-					<td class='cntc'>k</td>
-					<td class='frmc'>
-						<div>
-							<div>
-								<p>p</p>
-							</div>
-						</div>
-					</td>
-					<td class='rulc'></td>
-				</tr>
-				<tr>
-					<td class='cntc'></td>
-					<td class='frmc'>
-						<div>
-							<p>p &lt;&gt; q</p>
-						</div>
-					</td>
-					<td class='rulc'>
-						<div>h-i,j-k &lt;&gt;I</div>
-					</td>
-				</tr>
-			</table>
-
-		</td>
-
-		<td class='brd'>
-			<table class='rule'>
-				<tr>
-					<th colspan='2'>Rule of &harr;E</th>
-				</tr>
-				<tr>
-					<td class='cntc'>j</td>
-					<td class='frmc'>
-						<div>
-							<p>p &lt;&gt; q</p>
-						</div>
-					</td>
-					<td class='rulc'></td>
-				</tr>
-				<tr>
-					<td class='cntc'></td>
-					<td class='frmc'>
-						<div>
-							<p>:</p>
-						</div>
-					</td>
-					<td class='rulc'></td>
-				</tr>
-				<tr>
-					<td class='cntc'>k</td>
-					<td class='frmc'>
-						<div>
-							<p>p</p>
-						</div>
-					</td>
-					<td class='rulc'></td>
-				</tr>
-				<tr>
-					<td class='cntc'></td>
-					<td class='frmc'>
-						<div>
-							<p>:</p>
-						</div>
-					</td>
-					<td class='rulc'></td>
-				</tr>
-				<tr>
-					<td class='cntc'></td>
-					<td class='frmc'>
-						<div>
-							<p>q</p>
-						</div>
-					</td>
-					<td class='rulc'>
-						<div>j,k &lt;&gt;E</div>
-					</td>
-				</tr>
-			</table>
-		</td>
-
-		<td class='brd'>
-			<table class='rule'>
-				<tr>
-					<th colspan='2'>Rule of EFQ (Under SI/TI)</th>
-				</tr>
-				<tr>
-					<td class='cntc'>j</td>
-					<td class='frmc'>
-						<div>
-							<p>#</p>
-						</div>
-					</td>
-					<td class='rulc'></td>
-				</tr>
-				<tr>
-					<td class='cntc'></td>
-					<td class='frmc'>
-						<div>
-							<p>:</p>
-						</div>
-					</td>
-					<td class='rulc'></td>
-				</tr>
-				<tr>
-					<td class='cntc'></td>
-					<td class='frmc'>
-						<div>
-							<p>p</p>
-						</div>
-					</td>
-					<td class='rulc'>
-						<div>j EFQ
-					</td>
-				</tr>
-			</table>
-		</td>
-
-	</tr>
-	</table>
-
+	<td class='brd'>
+		<table class='rule'>
+			<tr>
+				<th colspan='2'>Rule of EFQ (Under SI/TI)</th>
+			</tr>
+			<tr>
+				<td class='cntc'>j</td>
+				<td class='frmc'>
+					<div>
+						<p>#</p>
+					</div>
+				</td>
+				<td class='rulc'></td>
+			</tr>
+			<tr>
+				<td class='cntc'></td>
+				<td class='frmc'>
+					<div>
+						<p>:</p>
+					</div>
+				</td>
+				<td class='rulc'></td>
+			</tr>
+			<tr>
+				<td class='cntc'></td>
+				<td class='frmc'>
+					<div>
+						<p>p</p>
+					</div>
+				</td>
+				<td class='rulc'>
+					<div>j EFQ
+				</td>
+			</tr>
+		</table>
 	</td>
-	</tr>
+
+</tr>
+</table>
+
+</td>
+</tr>
 
 
-	<tr>
-		<td><a href='javascript:void(0);' onclick='exp("qrulc");' id='qrulctrigger'>[+] Rules for Quantificational
-				Logic</a></td>
-	</tr>
+<tr>
+	<td><a href='javascript:void(0);' onclick='exp("qrulc");' id='qrulctrigger'>[+] Rules for Quantificational
+			Logic</a></td>
+</tr>
 
-	<tr>
-		<td id='qrulc'>
-			<br>
+<tr>
+	<td id='qrulc'>
+		<br>
 
-			<div class="note">
-				NOTE: as with the propositional rules, the order in which lines are cited matters for multi-line rules.
-			</div>
-			<br>
+		<div class="note">
+			NOTE: as with the propositional rules, the order in which lines are cited matters for multi-line rules.
+		</div>
+		<br>
 
-			<table class='rulcont'>
-				<tr>
+		<table class='rulcont'>
+			<tr>
 
-					<td class='brd'>
-						<table class='rule'>
-							<tr>
-								<th colspan='4'>Rule of &forall;I</th>
-							</tr>
-							<tr>
-								<td class='cntc'>j</td>
-								<td class='frmc'>
+				<td class='brd'>
+					<table class='rule'>
+						<tr>
+							<th colspan='4'>Rule of &forall;I</th>
+						</tr>
+						<tr>
+							<td class='cntc'>j</td>
+							<td class='frmc'>
+								<div>
 									<div>
-										<div>
-											<div class='fbar'></div>
-											<p>t</p>
-										</div>
+										<div class='fbar'></div>
+										<p>t</p>
 									</div>
-								</td>
-								<td class='rulc'>Flag</td>
-							</tr>
-							<tr>
-								<td class='cntc'></td>
-								<td class='frmc'>
-									<div>
-										<div>
-											<p>:</p>
-										</div>
-									</div>
-								</td>
-								<td class='rulc'></td>
-							</tr>
-							<tr>
-								<td class='cntc'>k</td>
-								<td class='frmc'>
-									<div>
-										<div>
-											<p>&phi;t</p>
-										</div>
-									</div>
-								</td>
-								<td class='rulc'></td>
-							</tr>
-							<tr>
-								<td class='cntc'>m</td>
-								<td class='frmc'>
-									<div>
-										<p>(Av)&phi;v</p>
-									</div>
-								</td>
-								<td class='rulc'>
-									<div>j-k AI</div>
-								</td>
-							</tr>
-							<tr>
-								<td colspan='4'></td>
-							</tr>
-							<tr>
-								<td colspan='4'>where t does not occur in (Av)&phi;v or any line available to line m.
-								</td>
-							</tr>
-						</table>
-					</td>
-
-
-					<td class='brd'>
-						<table class='rule'>
-							<tr>
-								<th colspan='2'>Rule of &forall;E</th>
-							</tr>
-							<tr>
-								<td class='cntc'>j</td>
-								<td class='frmc'>
-									<div>
-										<p>(Av)&phi;v</p>
-									</div>
-								</td>
-								<td class='rulc'></td>
-							</tr>
-							<tr>
-								<td class='cntc'></td>
-								<td class='frmc'>
+								</div>
+							</td>
+							<td class='rulc'>Flag</td>
+						</tr>
+						<tr>
+							<td class='cntc'></td>
+							<td class='frmc'>
+								<div>
 									<div>
 										<p>:</p>
 									</div>
-								</td>
-								<td class='rulc'></td>
-							</tr>
-							<tr>
-								<td class='cntc'></td>
-								<td class='frmc'>
+								</div>
+							</td>
+							<td class='rulc'></td>
+						</tr>
+						<tr>
+							<td class='cntc'>k</td>
+							<td class='frmc'>
+								<div>
 									<div>
 										<p>&phi;t</p>
 									</div>
-								</td>
-								<td class='rulc'>
-									<div>j AE</div>
-								</td>
-							</tr>
-						</table>
-					</td>
+								</div>
+							</td>
+							<td class='rulc'></td>
+						</tr>
+						<tr>
+							<td class='cntc'>m</td>
+							<td class='frmc'>
+								<div>
+									<p>(Av)&phi;v</p>
+								</div>
+							</td>
+							<td class='rulc'>
+								<div>j-k AI</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan='4'></td>
+						</tr>
+						<tr>
+							<td colspan='4'>where t does not occur in (Av)&phi;v or any line available to line m.
+							</td>
+						</tr>
+					</table>
+				</td>
 
-					<td class='brd'>
-						<table class='rule'>
-							<tr>
-								<th colspan='2'>Rule of &exist;I</th>
-							</tr>
-							<tr>
-								<td class='cntc'>j</td>
-								<td class='frmc'>
+
+				<td class='brd'>
+					<table class='rule'>
+						<tr>
+							<th colspan='2'>Rule of &forall;E</th>
+						</tr>
+						<tr>
+							<td class='cntc'>j</td>
+							<td class='frmc'>
+								<div>
+									<p>(Av)&phi;v</p>
+								</div>
+							</td>
+							<td class='rulc'></td>
+						</tr>
+						<tr>
+							<td class='cntc'></td>
+							<td class='frmc'>
+								<div>
+									<p>:</p>
+								</div>
+							</td>
+							<td class='rulc'></td>
+						</tr>
+						<tr>
+							<td class='cntc'></td>
+							<td class='frmc'>
+								<div>
+									<p>&phi;t</p>
+								</div>
+							</td>
+							<td class='rulc'>
+								<div>j AE</div>
+							</td>
+						</tr>
+					</table>
+				</td>
+
+				<td class='brd'>
+					<table class='rule'>
+						<tr>
+							<th colspan='2'>Rule of &exist;I</th>
+						</tr>
+						<tr>
+							<td class='cntc'>j</td>
+							<td class='frmc'>
+								<div>
+									<p>&phi;t</p>
+								</div>
+							</td>
+							<td class='rulc'></td>
+						</tr>
+						<tr>
+							<td class='cntc'></td>
+							<td class='frmc'>
+								<div>
+									<p>:</p>
+								</div>
+							</td>
+							<td class='rulc'></td>
+						</tr>
+						<tr>
+							<td class='cntc'></td>
+							<td class='frmc'>
+								<div>
+									<p>(Ev)&phi;v</p>
+								</div>
+							</td>
+							<td class='rulc'>
+								<div>j EI</div>
+							</td>
+						</tr>
+					</table>
+				</td>
+
+			</tr>
+			<tr>
+
+				<td class='brd'>
+					<table class='rule'>
+						<tr>
+							<th colspan='4'>Rule of &exist;E</th>
+						</tr>
+						<tr>
+							<td class='cntc'>j</td>
+							<td class='frmc'>
+								<div>
+									<p>(Ev)&phi;v</p>
+								</div>
+							</td>
+							<td class='rulc'></td>
+						</tr>
+						<tr>
+							<td class='cntc'>k</td>
+							<td class='frmc'>
+								<div>
 									<div>
+										<div class='fbar'></div>
 										<p>&phi;t</p>
 									</div>
-								</td>
-								<td class='rulc'></td>
-							</tr>
-							<tr>
-								<td class='cntc'></td>
-								<td class='frmc'>
+								</div>
+							</td>
+							<td class='rulc'></td>
+						</tr>
+						<tr>
+							<td class='cntc'></td>
+							<td class='frmc'>
+								<div>
 									<div>
 										<p>:</p>
 									</div>
-								</td>
-								<td class='rulc'></td>
-							</tr>
-							<tr>
-								<td class='cntc'></td>
-								<td class='frmc'>
-									<div>
-										<p>(Ev)&phi;v</p>
-									</div>
-								</td>
-								<td class='rulc'>
-									<div>j EI</div>
-								</td>
-							</tr>
-						</table>
-					</td>
-
-				</tr>
-				<tr>
-
-					<td class='brd'>
-						<table class='rule'>
-							<tr>
-								<th colspan='4'>Rule of &exist;E</th>
-							</tr>
-							<tr>
-								<td class='cntc'>j</td>
-								<td class='frmc'>
-									<div>
-										<p>(Ev)&phi;v</p>
-									</div>
-								</td>
-								<td class='rulc'></td>
-							</tr>
-							<tr>
-								<td class='cntc'>k</td>
-								<td class='frmc'>
-									<div>
-										<div>
-											<div class='fbar'></div>
-											<p>&phi;t</p>
-										</div>
-									</div>
-								</td>
-								<td class='rulc'></td>
-							</tr>
-							<tr>
-								<td class='cntc'></td>
-								<td class='frmc'>
-									<div>
-										<div>
-											<p>:</p>
-										</div>
-									</div>
-								</td>
-								<td class='rulc'></td>
-							</tr>
-							<tr>
-								<td class='cntc'>l</td>
-								<td class='frmc'>
-									<div>
-										<div>
-											<p>&psi;</p>
-										</div>
-									</div>
-								</td>
-								<td class='rulc'></td>
-							</tr>
-							<tr>
-								<td class='cntc'>m</td>
-								<td class='frmc'>
+								</div>
+							</td>
+							<td class='rulc'></td>
+						</tr>
+						<tr>
+							<td class='cntc'>l</td>
+							<td class='frmc'>
+								<div>
 									<div>
 										<p>&psi;</p>
 									</div>
-								</td>
-								<td class='rulc'>
-									<div>j,k-l EE</div>
-								</td>
-							</tr>
-							<tr>
-								<td colspan='4'></td>
-							</tr>
-							<tr>
-								<td colspan='4'>where t does not occur in &psi; or any line available to line m.</td>
-							</tr>
-						</table>
-					</td>
+								</div>
+							</td>
+							<td class='rulc'></td>
+						</tr>
+						<tr>
+							<td class='cntc'>m</td>
+							<td class='frmc'>
+								<div>
+									<p>&psi;</p>
+								</div>
+							</td>
+							<td class='rulc'>
+								<div>j,k-l EE</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan='4'></td>
+						</tr>
+						<tr>
+							<td colspan='4'>where t does not occur in &psi; or any line available to line m.</td>
+						</tr>
+					</table>
+				</td>
 
-					<td class='brd'>
-						<table class='rule'>
-							<tr>
-								<th colspan='4'>Rule of =I</th>
-							</tr>
-							<tr>
-								<td class='cntc'>j</td>
-								<td class='frmc'>
-									<div>
-										<p>t=t</p>
-									</div>
-								</td>
-								<td class='rulc'>=I</td>
-							</tr>
-						</table>
-					</td>
+				<td class='brd'>
+					<table class='rule'>
+						<tr>
+							<th colspan='4'>Rule of =I</th>
+						</tr>
+						<tr>
+							<td class='cntc'>j</td>
+							<td class='frmc'>
+								<div>
+									<p>t=t</p>
+								</div>
+							</td>
+							<td class='rulc'>=I</td>
+						</tr>
+					</table>
+				</td>
 
-					<td class='brd'>
-						<table class='rule'>
-							<tr>
-								<th colspan='2'>Rule of =E</th>
-							</tr>
-							<tr>
-								<td class='cntc'>j</td>
-								<td class='frmc'>
-									<div>
-										<p>t<sub>1</sub>=t<sub>2</sub></p>
-									</div>
-								</td>
-								<td class='rulc'></td>
-							</tr>
-							<tr>
-								<td class='cntc'></td>
-								<td class='frmc'>
-									<div>
-										<p>:</p>
-									</div>
-								</td>
-								<td class='rulc'></td>
-							</tr>
-							<tr>
-								<td class='cntc'>k</td>
-								<td class='frmc'>
-									<div>
-										<p>&phi;t<sub>1</sub></p>
-									</div>
-								</td>
-								<td class='rulc'></td>
-							</tr>
-							<tr>
-								<td class='cntc'></td>
-								<td class='frmc'>
-									<div>
-										<p>:</p>
-									</div>
-								</td>
-								<td class='rulc'></td>
-							</tr>
-							<tr>
-								<td class='cntc'></td>
-								<td class='frmc'>
-									<div>
-										<p>&phi;t<sub>2</sub></p>
-									</div>
-								</td>
-								<td class='rulc'>
-									<div>j,k =E</div>
-								</td>
-							</tr>
-						</table>
-					</td>
+				<td class='brd'>
+					<table class='rule'>
+						<tr>
+							<th colspan='2'>Rule of =E</th>
+						</tr>
+						<tr>
+							<td class='cntc'>j</td>
+							<td class='frmc'>
+								<div>
+									<p>t<sub>1</sub>=t<sub>2</sub></p>
+								</div>
+							</td>
+							<td class='rulc'></td>
+						</tr>
+						<tr>
+							<td class='cntc'></td>
+							<td class='frmc'>
+								<div>
+									<p>:</p>
+								</div>
+							</td>
+							<td class='rulc'></td>
+						</tr>
+						<tr>
+							<td class='cntc'>k</td>
+							<td class='frmc'>
+								<div>
+									<p>&phi;t<sub>1</sub></p>
+								</div>
+							</td>
+							<td class='rulc'></td>
+						</tr>
+						<tr>
+							<td class='cntc'></td>
+							<td class='frmc'>
+								<div>
+									<p>:</p>
+								</div>
+							</td>
+							<td class='rulc'></td>
+						</tr>
+						<tr>
+							<td class='cntc'></td>
+							<td class='frmc'>
+								<div>
+									<p>&phi;t<sub>2</sub></p>
+								</div>
+							</td>
+							<td class='rulc'>
+								<div>j,k =E</div>
+							</td>
+						</tr>
+					</table>
+				</td>
 
-				</tr>
-			</table>
+			</tr>
+		</table>
 
-		</td>
-	</tr>
+	</td>
+</tr>
 
-	<tr>
-		<td><a href='javascript:void(0);' onclick='exp("drulc");' id='drulctrigger'>[+] Derived Rules</a></td>
-	</tr>
+<tr>
+	<td><a href='javascript:void(0);' onclick='exp("drulc");' id='drulctrigger'>[+] Derived Rules</a></td>
+</tr>
 
-	<tr>
-		<td id='drulc'>
-
-			<br>
-
-			<div class="note">
-				NOTE: (DS1), (DS2), and (MT) involve more than one line, and here the order in which rule lines are
-				cited is important. E.g. to use (MT) 'A>B, ~B |- ~A', the line number of the conditional A>B needs to be
-				cited first, and that of the negated consequent ~B second.
-			</div>
-
-			<ul style="list-style-type: none;">
-				<li>(DS1): AvB, ~A |- B</li>
-				<li>(DS2): AvB, ~B |- A</li>
-				<li>(MT): A&gt;B, ~B |- ~A</li>
-				<li>(PMI1): A |- B&gt;A</li>
-				<li>(PMI2): ~A |- A&gt;B</li>
-				<li>(DN+): A |- ~~A</li>
-				<li>(EFQ): # |- A</li>
-				<li>(DeM1): ~(A&amp;B) -||- ~Av~B</li>
-				<li>(DeM2): ~(AvB) -||- ~A&amp;~B</li>
-				<li>(DeM3): ~(~Av~B) -||- A&amp;B</li>
-				<li>(DeM4): ~(~A&amp;~B) -||- AvB</li>
-				<li>(Imp): A&gt;B -||- ~AvB</li>
-				<li>(NegImp): ~(A&gt;B) -||- A&amp;~B</li>
-				<li>(Com): A*B |- B*A</li>
-				<li>(Dist1): A&amp;(BvC) -||- (A&amp;B)v(A&amp;C)</li>
-				<li>(Dist2): Av(B&amp;C) -||- (AvB)&amp;(AvC)</li>
-				<li>(SDN1): A*B pattern</li>
-				<li>(SDN2): ~(A*B) pattern</li>
-				<li value='(LEM):(Av~A)'>LEM: |- Av~A</li>
-			</ul>
-
-
-
-
-		</td>
-	</tr>
-
-
-	<tr>
-		<td><a href='javascript:void(0);' onclick='exp("exc");' id='exctrigger'>[+] Examples</a></td>
-	</tr>
-
-	<tr>
-
-		<td id='exc'>
-			<br>
-
-			<div class="note">
-				Some (importable) sample proofs in the "plain" notation are <a href='samples/examples.html'
-					target='_blank'>here</a>.
-				<br><br>
-				Note that proofs can also be exported in "pretty print" notation (with unicode logic symbols) or LaTeX.
-				See <a href='samples/fitch.pdf' target='_blank'>this pdf</a> for an example of how Fitch proofs typeset
-				in LaTeX look. To typeset these proofs you will need Johann Klüwer's <a href='samples/fitch.sty'
-					target='_blank'>fitch.sty</a>. (If you don't want to install this file, you can just include it in
-				the the same directory as your tex source file.)
-
-
-			</div>
-			<br>
-		</td>
-	</tr>
-
-
-	</table>
-
-	<div id='drvd'>
-
-		<svg id='drv' width='300' height='30'></svg>
-
-		<br>
-		<br>
+<tr>
+	<td id='drulc'>
 
 		<br>
 
-		<svg id='gls' width='300' height='0'></svg>
-		<br>
-		<svg id='con' width='300' height='0'></svg>
+		<div class="note">
+			NOTE: (DS1), (DS2), and (MT) involve more than one line, and here the order in which rule lines are
+			cited is important. E.g. to use (MT) 'A>B, ~B |- ~A', the line number of the conditional A>B needs to be
+			cited first, and that of the negated consequent ~B second.
+		</div>
 
-	</div>
-	<div id='errord'>
-	</div>
-	</div> <!-- close menu div -->
+		<ul style="list-style-type: none;">
+			<li>(DS1): AvB, ~A |- B</li>
+			<li>(DS2): AvB, ~B |- A</li>
+			<li>(MT): A&gt;B, ~B |- ~A</li>
+			<li>(PMI1): A |- B&gt;A</li>
+			<li>(PMI2): ~A |- A&gt;B</li>
+			<li>(DN+): A |- ~~A</li>
+			<li>(EFQ): # |- A</li>
+			<li>(DeM1): ~(A&amp;B) -||- ~Av~B</li>
+			<li>(DeM2): ~(AvB) -||- ~A&amp;~B</li>
+			<li>(DeM3): ~(~Av~B) -||- A&amp;B</li>
+			<li>(DeM4): ~(~A&amp;~B) -||- AvB</li>
+			<li>(Imp): A&gt;B -||- ~AvB</li>
+			<li>(NegImp): ~(A&gt;B) -||- A&amp;~B</li>
+			<li>(Com): A*B |- B*A</li>
+			<li>(Dist1): A&amp;(BvC) -||- (A&amp;B)v(A&amp;C)</li>
+			<li>(Dist2): Av(B&amp;C) -||- (AvB)&amp;(AvC)</li>
+			<li>(SDN1): A*B pattern</li>
+			<li>(SDN2): ~(A*B) pattern</li>
+			<li value='(LEM):(Av~A)'>LEM: |- Av~A</li>
+		</ul>
+
+
+
+
+	</td>
+</tr>
+
+
+<tr>
+	<td><a href='javascript:void(0);' onclick='exp("exc");' id='exctrigger'>[+] Examples</a></td>
+</tr>
+
+<tr>
+
+	<td id='exc'>
+		<br>
+
+		<div class="note">
+			Some (importable) sample proofs in the "plain" notation are <a href='samples/examples.html'
+				target='_blank'>here</a>.
+			<br><br>
+			Note that proofs can also be exported in "pretty print" notation (with unicode logic symbols) or LaTeX.
+			See <a href='samples/fitch.pdf' target='_blank'>this pdf</a> for an example of how Fitch proofs typeset
+			in LaTeX look. To typeset these proofs you will need Johann Klüwer's <a href='samples/fitch.sty'
+				target='_blank'>fitch.sty</a>. (If you don't want to install this file, you can just include it in
+			the the same directory as your tex source file.)
+
+
+		</div>
+		<br>
+	</td>
+</tr>
+
+
+</table>
+</div>
 
 
 
