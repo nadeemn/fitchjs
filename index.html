@@ -221,9 +221,7 @@ THE SOFTWARE.
 				<td>
 					<table>
 						<tr>
-							<td colspan='5'>Check the whole proof before exporting: <input type='button'
-									value='Check Proof' onclick='ckproof();'></td>
-						</tr>
+
 						<tr>
 							<td><button type='button' value='Export' onclick='export_proof();'>Export</button></td>
 							<td><input type='radio' name='extype' id='plain' checked>Plain</td>
@@ -1498,6 +1496,10 @@ You can also paste a previously exported proof (in the plain text format) in thi
 
 
 	<div id='restartd'>
+		<div colspan='5'>Check the whole proof before exporting: <input type='button'
+			value='Check Proof' onclick='ckproof();'></td>
+		</div>
+		<br>
 		<button onclick='restart_proof()'>Start new Proof</button>
 	</div>
 
