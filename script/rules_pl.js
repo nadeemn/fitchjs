@@ -157,7 +157,7 @@ function ckCNE(l,n) {
 	if(l.lin.length!=2) {
 		throw flag+'Rule must be applied to two lines.';
 	}
-	if(PROOF[l.lin[0]-1].tr.length!=3 || PROOF[l.lin[0]-1].tr[1]!='>') {
+	if(PROOF[l.lin[0]-1].tr.length!=3 || PROOF[l.lin[0]-1].tr[1]!='→') {
 		throw flag+'The first rule line must be a conditional. (Remember: cite the line of the conditional first, the line of its antecedent second.)'
 	}
 	if(PROOF[l.lin[1]-1].frm!=unparse(PROOF[l.lin[0]-1].tr[0])) {
