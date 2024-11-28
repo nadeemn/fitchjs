@@ -76,7 +76,7 @@ function ckCJI(l,n) {
 	if(l.lin.length!=2) {
 		throw flag+'Rule must be applied to two lines.';
 	}
-	if(l.tr.length!=3 || l.tr[1]!='&') {
+	if(l.tr.length!=3 || l.tr[1]!='∧') {
 		throw flag+'The formula being derived must be a conjunction.';
 	}
 	if(!(l.frm=='('+PROOF[l.lin[0]-1].frm+'&'+PROOF[l.lin[1]-1].frm+')') && !(l.frm=='('+PROOF[l.lin[1]-1].frm+'&'+PROOF[l.lin[0]-1].frm+')')) {
@@ -96,7 +96,7 @@ function ckCJE(l,n) {
 	if(l.lin.length!=1) {
 		throw flag+'Rule must be applied to one line.';
 	}
-	if(PROOF[l.lin[0]-1].tr.length!=3 || PROOF[l.lin[0]-1].tr[1]!='&') {
+	if(PROOF[l.lin[0]-1].tr.length!=3 || PROOF[l.lin[0]-1].tr[1]!='∧') {
 		throw flag+'The formula on line '+l.lin[0]+' must be a conjunction.';
 	}
 	if(!(l.frm==unparse(PROOF[l.lin[0]-1].tr[0])) && !(l.frm==unparse(PROOF[l.lin[0]-1].tr[2]))){
@@ -132,7 +132,7 @@ function ckCNI(l,n) {
 		throw flag+'The second rule line must be the last line of the subproof beginning with the assumption line '+sa+".";
 	}
 	
-	if(l.tr.length!=3 || l.tr[1]!='>') {
+	if(l.tr.length!=3 || l.tr[1]!='→') {
 		throw flag+'The formula being derived must be a conditional.';
 	}
 	if(PROOF[sa-1].frm!=unparse(l.tr[0])) {
