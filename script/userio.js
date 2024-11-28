@@ -578,21 +578,27 @@ document.addEventListener('DOMContentLoaded', () => {
 			
 			const input = event.target;
 			const currentValue = input.value
+			const cursorPosition = input.selectionStart
+
 			if(event.key === '>') {
+
 				event.preventDefault();
-				if (currentValue.slice(-1) === '<') {
-					input.value = currentValue.slice(0,-1) + '↔';
+				if (currentValue.slice(cursorPosition - 1, cursorPosition) === '<') {
+					input.value = currentValue.slice(0, cursorPosition - 1) + '↔' + currentValue.slice(cursorPosition);
 				} else {
-					input.value = currentValue + '→';
+					input.value = currentValue.slice(0, cursorPosition) + '→' + currentValue.slice(cursorPosition);
 				}
+				input.selectionStart = input.selectionEnd = cursorPosition+1
 			}
 			else if(event.key === '~') {
 				event.preventDefault();
-				input.value = currentValue + '¬';
+				input.value = currentValue.slice(0, cursorPosition) + '¬' + currentValue.slice(cursorPosition);
+				input.selectionStart = input.selectionEnd = cursorPosition + 1;
 			}
 			else if(event.key === '&') {
 				event.preventDefault();
-				input.value = currentValue + '∧';
+				input.value = currentValue.slice(0, cursorPosition) + '∧' + currentValue.slice(cursorPosition);
+				input.selectionStart = input.selectionEnd = cursorPosition + 1;
 			}
 		})
 	})
