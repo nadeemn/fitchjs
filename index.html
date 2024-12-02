@@ -287,7 +287,7 @@ You can also paste a previously exported proof (in the plain text format) in thi
 					NOTE: the program lets you drop the outermost parentheses on formulas with a binary main
 					connective, e.g. P→(Q∧R) rather than (P→(Q∧R)). Since the letter 'v' is used for disjunction, it
 					can't be used as a variable or individual constant. Note also that quantifiers are enclosed by
-					parentheses, e.g. (∃x)Rax rather than ExRax, or (Ax)(Fx>Gx) rather than ∀x(Fx>Gx).
+					parentheses, e.g. (∃x)Rax rather than ∃xRax, or (∀x)(Fx>Gx) rather than ∀x(Fx>Gx).
 				</div>
 				<br>
 
@@ -375,16 +375,16 @@ You can also paste a previously exported proof (in the plain text format) in thi
 						<td>(Fa ∧ Rab)</td>
 					</tr>
 					<tr>
-						<td>(∈x)Rxb</td>
+						<td>(∃x)Rxb</td>
 					</tr>
 					<tr>
-						<td>(∈x)(∀y)(Rxy ↔ Ryx)</td>
+						<td>(∃x)(∀y)(Rxy ↔ Ryx)</td>
 					</tr>
 					<tr>
-						<td>(∀x)((Fx ∧ (∈y)Rxy) → (∈y)(Fy v Ryx))</td>
+						<td>(∀x)((Fx ∧ (∃y)Rxy) → (∃y)(Fy v Ryx))</td>
 					</tr>
 					<tr>
-						<td>((∀x)(Fx → (∈y)Rxy) → (∈y)Gy)</td>
+						<td>((∀x)(Fx → (∃y)Rxy) → (∃y)Gy)</td>
 					</tr>
 				</table>
 
@@ -415,7 +415,7 @@ You can also paste a previously exported proof (in the plain text format) in thi
 						<td class='brd'>
 							<table class='rule'>
 								<tr>
-									<th colspan='2'>Rule of &amp;I</th>
+									<th colspan='2'>Rule of &and;I</th>
 								</tr>
 								<tr>
 									<td class='cntc'>j</td>
@@ -458,7 +458,7 @@ You can also paste a previously exported proof (in the plain text format) in thi
 									<td class='cntc'></td>
 									<td class='frmc'>
 										<div>
-											<p>p &amp; q</p>
+											<p>p &and;; q</p>
 										</div>
 									</td>
 									<td class='rulc'>
@@ -471,13 +471,13 @@ You can also paste a previously exported proof (in the plain text format) in thi
 						<td class='brd'>
 							<table class='rule'>
 								<tr>
-									<th colspan='2'>Rule of &amp;E</th>
+									<th colspan='2'>Rule of &and;E</th>
 								</tr>
 								<tr>
 									<td class='cntc'>j</td>
 									<td class='frmc'>
 										<div>
-											<p>p &amp; q</p>
+											<p>p &and; q</p>
 										</div>
 									</td>
 									<td class='rulc'></td>
@@ -663,7 +663,7 @@ You can also paste a previously exported proof (in the plain text format) in thi
 <td class='brd'>
 	<table class='rule'>
 		<tr>
-			<th colspan='2'>Rule of ~I</th>
+			<th colspan='2'>Rule of &not;I</th>
 		</tr>
 		<tr>
 			<td class='cntc'>j</td>
@@ -703,11 +703,11 @@ You can also paste a previously exported proof (in the plain text format) in thi
 			<td class='cntc'></td>
 			<td class='frmc'>
 				<div>
-					<p>~p</p>
+					<p>&not;p</p>
 				</div>
 			</td>
 			<td class='rulc'>
-				<div>j-k ~I</div>
+				<div>j-k &not;I</div>
 			</td>
 		</tr>
 	</table>
@@ -722,7 +722,7 @@ You can also paste a previously exported proof (in the plain text format) in thi
 			<td class='cntc'>j</td>
 			<td class='frmc'>
 				<div>
-					<p>~p</p>
+					<p>&not;p</p>
 				</div>
 			</td>
 			<td class='rulc'></td>
@@ -774,13 +774,13 @@ You can also paste a previously exported proof (in the plain text format) in thi
 	<td class='brd'>
 		<table class='rule'>
 			<tr>
-				<th colspan='2'>Rule of ~E</th>
+				<th colspan='2'>Rule of &not;E</th>
 			</tr>
 			<tr>
 				<td class='cntc'>j</td>
 				<td class='frmc'>
 					<div>
-						<p>~~p</p>
+						<p>&not;&not;p</p>
 					</div>
 				</td>
 				<td class='rulc'></td>
@@ -802,7 +802,7 @@ You can also paste a previously exported proof (in the plain text format) in thi
 					</div>
 				</td>
 				<td class='rulc'>
-					<div>j ~E
+					<div>j &not;E
 				</td>
 			</tr>
 		</table>
@@ -851,11 +851,11 @@ You can also paste a previously exported proof (in the plain text format) in thi
 				<td class='cntc'></td>
 				<td class='frmc'>
 					<div>
-						<p>p &gt; q</p>
+						<p>p &rarr; q</p>
 					</div>
 				</td>
 				<td class='rulc'>
-					<div>j-k &gt;I</div>
+					<div>j-k &rarr;I</div>
 				</td>
 			</tr>
 		</table>
@@ -910,7 +910,7 @@ You can also paste a previously exported proof (in the plain text format) in thi
 					</div>
 				</td>
 				<td class='rulc'>
-					<div>j,k &gt;E</div>
+					<div>j,k &rarr;E</div>
 				</td>
 			</tr>
 		</table>
@@ -1009,11 +1009,11 @@ You can also paste a previously exported proof (in the plain text format) in thi
 				<td class='cntc'></td>
 				<td class='frmc'>
 					<div>
-						<p>p &lt;&gt; q</p>
+						<p>p &harr; q</p>
 					</div>
 				</td>
 				<td class='rulc'>
-					<div>h-i,j-k &lt;&gt;I</div>
+					<div>h-i,j-k &harr;I</div>
 				</td>
 			</tr>
 		</table>
@@ -1029,7 +1029,7 @@ You can also paste a previously exported proof (in the plain text format) in thi
 				<td class='cntc'>j</td>
 				<td class='frmc'>
 					<div>
-						<p>p &lt;&gt; q</p>
+						<p>p &harr; q</p>
 					</div>
 				</td>
 				<td class='rulc'></td>
@@ -1069,7 +1069,7 @@ You can also paste a previously exported proof (in the plain text format) in thi
 					</div>
 				</td>
 				<td class='rulc'>
-					<div>j,k &lt;&gt;E</div>
+					<div>j,k &harr;E</div>
 				</td>
 			</tr>
 		</table>
