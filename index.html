@@ -458,11 +458,11 @@ You can also paste a previously exported proof (in the plain text format) in thi
 									<td class='cntc'></td>
 									<td class='frmc'>
 										<div>
-											<p>p &and;; q</p>
+											<p>p &and; q</p>
 										</div>
 									</td>
 									<td class='rulc'>
-										<div>j,k &amp;I</div>
+										<div>j,k &and;I</div>
 									</td>
 								</tr>
 							</table>
@@ -499,7 +499,7 @@ You can also paste a previously exported proof (in the plain text format) in thi
 										</div>
 									</td>
 									<td class='rulc'>
-										<div>j &amp;E</div>
+										<div>j &and;E</div>
 									</td>
 								</tr>
 							</table>
@@ -1179,18 +1179,18 @@ You can also paste a previously exported proof (in the plain text format) in thi
 							<td class='cntc'>m</td>
 							<td class='frmc'>
 								<div>
-									<p>(Av)&phi;v</p>
+									<p>(&forall;v)&phi;v</p>
 								</div>
 							</td>
 							<td class='rulc'>
-								<div>j-k AI</div>
+								<div>j-k &forall;I</div>
 							</td>
 						</tr>
 						<tr>
 							<td colspan='4'></td>
 						</tr>
 						<tr>
-							<td colspan='4'>where t does not occur in (Av)&phi;v or any line available to line m.
+							<td colspan='4'>where t does not occur in (&forall;v)&phi;v or any line available to line m.
 							</td>
 						</tr>
 					</table>
@@ -1206,7 +1206,7 @@ You can also paste a previously exported proof (in the plain text format) in thi
 							<td class='cntc'>j</td>
 							<td class='frmc'>
 								<div>
-									<p>(Av)&phi;v</p>
+									<p>(&forall;v)&phi;v</p>
 								</div>
 							</td>
 							<td class='rulc'></td>
@@ -1228,7 +1228,7 @@ You can also paste a previously exported proof (in the plain text format) in thi
 								</div>
 							</td>
 							<td class='rulc'>
-								<div>j AE</div>
+								<div>j &forall;E</div>
 							</td>
 						</tr>
 					</table>
@@ -1261,11 +1261,11 @@ You can also paste a previously exported proof (in the plain text format) in thi
 							<td class='cntc'></td>
 							<td class='frmc'>
 								<div>
-									<p>(Ev)&phi;v</p>
+									<p>(&exist;v)&phi;v</p>
 								</div>
 							</td>
 							<td class='rulc'>
-								<div>j EI</div>
+								<div>j &exist;I</div>
 							</td>
 						</tr>
 					</table>
@@ -1283,7 +1283,7 @@ You can also paste a previously exported proof (in the plain text format) in thi
 							<td class='cntc'>j</td>
 							<td class='frmc'>
 								<div>
-									<p>(Ev)&phi;v</p>
+									<p>(&exist;v)&phi;v</p>
 								</div>
 							</td>
 							<td class='rulc'></td>
@@ -1330,7 +1330,7 @@ You can also paste a previously exported proof (in the plain text format) in thi
 								</div>
 							</td>
 							<td class='rulc'>
-								<div>j,k-l EE</div>
+								<div>j,k-l &exist;E</div>
 							</td>
 						</tr>
 						<tr>
@@ -1431,30 +1431,30 @@ You can also paste a previously exported proof (in the plain text format) in thi
 
 		<div class="note">
 			NOTE: (DS1), (DS2), and (MT) involve more than one line, and here the order in which rule lines are
-			cited is important. E.g. to use (MT) 'A>B, ~B |- ~A', the line number of the conditional A>B needs to be
+			cited is important. E.g. to use (MT) 'A&rarr;B, &not;B |- &not;A', the line number of the conditional A>B needs to be
 			cited first, and that of the negated consequent ~B second.
 		</div>
 
 		<ul style="list-style-type: none;">
-			<li>(DS1): AvB, ~A |- B</li>
-			<li>(DS2): AvB, ~B |- A</li>
-			<li>(MT): A&gt;B, ~B |- ~A</li>
-			<li>(PMI1): A |- B&gt;A</li>
-			<li>(PMI2): ~A |- A&gt;B</li>
-			<li>(DN+): A |- ~~A</li>
+			<li>(DS1): AvB, &not;A |- B</li>
+			<li>(DS2): AvB, &not;B |- A</li>
+			<li>(MT): A&rarr;B, &not;B |- &not;A</li>
+			<li>(PMI1): A |- B&rarr;A</li>
+			<li>(PMI2): ~A |- A&rarr;B</li>
+			<li>(DN+): A |- &not;&not;A</li>
 			<li>(EFQ): # |- A</li>
-			<li>(DeM1): ~(A&amp;B) -||- ~Av~B</li>
-			<li>(DeM2): ~(AvB) -||- ~A&amp;~B</li>
-			<li>(DeM3): ~(~Av~B) -||- A&amp;B</li>
-			<li>(DeM4): ~(~A&amp;~B) -||- AvB</li>
-			<li>(Imp): A&gt;B -||- ~AvB</li>
-			<li>(NegImp): ~(A&gt;B) -||- A&amp;~B</li>
+			<li>(DeM1): &not;(A&and;B) -||- &not;Av&not;B</li>
+			<li>(DeM2): &not;(AvB) -||- &not;A&and;&not;B</li>
+			<li>(DeM3): &not;(&not;Av&not;B) -||- A&and;B</li>
+			<li>(DeM4): &not;(&not;A&and;&not;B) -||- AvB</li>
+			<li>(Imp): A&rarr;B -||- &not;AvB</li>
+			<li>(NegImp): &not;(A&rarr;B) -||- A&and;&not;B</li>
 			<li>(Com): A*B |- B*A</li>
-			<li>(Dist1): A&amp;(BvC) -||- (A&amp;B)v(A&amp;C)</li>
-			<li>(Dist2): Av(B&amp;C) -||- (AvB)&amp;(AvC)</li>
+			<li>(Dist1): A&and;(BvC) -||- (A&and;B)v(A&and;C)</li>
+			<li>(Dist2): Av(B&and;C) -||- (AvB)&and;(AvC)</li>
 			<li>(SDN1): A*B pattern</li>
 			<li>(SDN2): ~(A*B) pattern</li>
-			<li value='(LEM):(Av~A)'>LEM: |- Av~A</li>
+			<li value='(LEM):(Av~A)'>LEM: |- Av&not;A</li>
 		</ul>
 
 
