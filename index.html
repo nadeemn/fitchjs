@@ -285,9 +285,9 @@ You can also paste a previously exported proof (in the plain text format) in thi
 				<br>
 				<div class='note'>
 					NOTE: the program lets you drop the outermost parentheses on formulas with a binary main
-					connective, e.g. P>(Q&R) rather than (P>(Q&R)). Since the letter 'v' is used for disjunction, it
+					connective, e.g. P→(Q∧R) rather than (P→(Q∧R)). Since the letter 'v' is used for disjunction, it
 					can't be used as a variable or individual constant. Note also that quantifiers are enclosed by
-					parentheses, e.g. (Ex)Rax rather than ExRax, or (Ax)(Fx>Gx) rather than Ax(Fx>Gx).
+					parentheses, e.g. (∃x)Rax rather than ExRax, or (Ax)(Fx>Gx) rather than ∀x(Fx>Gx).
 				</div>
 				<br>
 
@@ -297,11 +297,11 @@ You can also paste a previously exported proof (in the plain text format) in thi
 					</tr>
 					<tr>
 						<td>Negation</td>
-						<td>~</td>
+						<td>¬</td>
 					</tr>
 					<tr>
 						<td>Conjunction</td>
-						<td>&amp;</td>
+						<td>∧</td>
 					</tr>
 					<tr>
 						<td>Disjunction</td>
@@ -309,11 +309,11 @@ You can also paste a previously exported proof (in the plain text format) in thi
 					</tr>
 					<tr>
 						<td>Conditional</td>
-						<td>&gt;</td>
+						<td>→</td>
 					</tr>
 					<tr>
 						<td>Biconditional</td>
-						<td>&lt;&gt;</td>
+						<td>↔</td>
 					</tr>
 					<tr>
 						<td>Absurdity</td>
@@ -321,11 +321,11 @@ You can also paste a previously exported proof (in the plain text format) in thi
 					</tr>
 					<tr>
 						<td>Existential Quantifier</td>
-						<td>E</td>
+						<td>∃</td>
 					</tr>
 					<tr>
 						<td>Universal Quantifier</td>
-						<td>A</td>
+						<td>∀</td>
 					</tr>
 					<tr>
 						<td>Identity Relation</td>
@@ -363,28 +363,28 @@ You can also paste a previously exported proof (in the plain text format) in thi
 						<td>P</td>
 					</tr>
 					<tr>
-						<td>((GvH)&gt;F)</td>
+						<td>((GvH)→F)</td>
 					</tr>
 					<tr>
-						<td>(#&gt;P)</td>
+						<td>(#→P)</td>
 					</tr>
 					<tr>
 						<td>Fa</td>
 					</tr>
 					<tr>
-						<td>(Fa &amp; Rab)</td>
+						<td>(Fa ∧ Rab)</td>
 					</tr>
 					<tr>
-						<td>(Ex)Rxb</td>
+						<td>(∈x)Rxb</td>
 					</tr>
 					<tr>
-						<td>(Ex)(Ay)(Rxy &lt;&gt; Ryx)</td>
+						<td>(∈x)(∀y)(Rxy ↔ Ryx)</td>
 					</tr>
 					<tr>
-						<td>(Ax)((Fx &amp; (Ey)Rxy) &gt; (Ey)(Fy v Ryx))</td>
+						<td>(∀x)((Fx ∧ (∈y)Rxy) → (∈y)(Fy v Ryx))</td>
 					</tr>
 					<tr>
-						<td>((Ax)(Fx &gt; (Ey)Rxy) &gt; (Ey)Gy)</td>
+						<td>((∀x)(Fx → (∈y)Rxy) → (∈y)Gy)</td>
 					</tr>
 				</table>
 
