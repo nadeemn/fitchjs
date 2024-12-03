@@ -79,7 +79,7 @@ function ckCJI(l,n) {
 	if(l.tr.length!=3 || l.tr[1]!='∧') {
 		throw flag+'The formula being derived must be a conjunction.';
 	}
-	if(!(l.frm=='('+PROOF[l.lin[0]-1].frm+'&'+PROOF[l.lin[1]-1].frm+')') && !(l.frm=='('+PROOF[l.lin[1]-1].frm+'&'+PROOF[l.lin[0]-1].frm+')')) {
+	if(!(l.frm=='('+PROOF[l.lin[0]-1].frm+'∧'+PROOF[l.lin[1]-1].frm+')') && !(l.frm=='('+PROOF[l.lin[1]-1].frm+'∧'+PROOF[l.lin[0]-1].frm+')')) {
 		throw flag+'The formulas on lines '+l.lin[0]+' and '+l.lin[1]+' must be the conjuncts of the formula being derived.';
 	}
 	var x = areAvl(l.lin,l.avl);
@@ -282,7 +282,7 @@ function ckNI(l,n) {
 	if(PROOF[sc-1].frm!='#') {
 		throw flag+'The second rule line must be the absurdity.';
 	}	 
-	if(l.frm!=('~'+PROOF[sa-1].frm)) {
+	if(l.frm!=('¬'+PROOF[sa-1].frm)) {
 		throw flag+'The formula being derived must be the negation of the assumption on the first rule line.';
 	}
 	
@@ -322,7 +322,7 @@ function ckNE(l,n) {
 	if(l.lin.length!=1) {
 		throw flag+'Rule must be applied to one line.';
 	}
-	if(!(PROOF[l.lin[0]-1].frm.length>2) || PROOF[l.lin[0]-1].frm.substr(0,2)!='~~' || l.frm!=PROOF[l.lin[0]-1].frm.substring(2)) {
+	if(!(PROOF[l.lin[0]-1].frm.length>2) || PROOF[l.lin[0]-1].frm.substr(0,2)!='¬¬' || l.frm!=PROOF[l.lin[0]-1].frm.substring(2)) {
 		throw flag+'Formula on line '+l.lin[0]+' must be the double negation of the formula being derived.';
 	}
 	x = areAvl(l.lin,l.avl);
@@ -357,7 +357,7 @@ function ckBCI(l,n) {
 		throw flag+'Rule must be applied to two subproofs (citations of the form "j-k").';
 	}
 	
-	if(l.tr.length!=3 || l.tr[1]!='<>') {
+	if(l.tr.length!=3 || l.tr[1]!='↔') {
 		throw flag+'The formula being derived must be a biconditional.';
 	}
 	
@@ -390,7 +390,7 @@ function ckBCI(l,n) {
 	if(PROOF[sa1-1].frm!=PROOF[sc2-1].frm || PROOF[sc1-1].frm!=PROOF[sa2-1].frm) {
 		throw flag+'The formula on the first rule line must match the one on the fourth, and the one on the second must match the one on the third.';
 	}
-	if((l.frm!='('+PROOF[sa1-1].frm+'<>'+PROOF[sc1-1].frm+')') && (l.frm!='('+PROOF[sc1-1].frm+'<>'+PROOF[sa1-1].frm+')')) {
+	if((l.frm!='('+PROOF[sa1-1].frm+'↔'+PROOF[sc1-1].frm+')') && (l.frm!='('+PROOF[sc1-1].frm+'↔'+PROOF[sa1-1].frm+')')) {
 		throw flag+'The biconditional being derived must be composed of the formulas on the rule lines.';
 	}
 	
@@ -412,10 +412,10 @@ function ckBCE(l,n) {
 	if(l.lin.length!=2) {
 		throw flag+'Rule must be applied to two lines.';
 	}
-	if(PROOF[l.lin[0]-1].tr.length!=3 || PROOF[l.lin[0]-1].tr[1]!='<>') {
+	if(PROOF[l.lin[0]-1].tr.length!=3 || PROOF[l.lin[0]-1].tr[1]!='↔') {
 		throw flag+'The formula on the first rule line must be a biconditional.';
 	}
-	if('('+PROOF[l.lin[1]-1].frm+'<>'+l.frm+')'!=PROOF[l.lin[0]-1].frm && '('+l.frm+'<>'+PROOF[l.lin[1]-1].frm+')'!=PROOF[l.lin[0]-1].frm) {
+	if('('+PROOF[l.lin[1]-1].frm+'↔'+l.frm+')'!=PROOF[l.lin[0]-1].frm && '('+l.frm+'↔'+PROOF[l.lin[1]-1].frm+')'!=PROOF[l.lin[0]-1].frm) {
 		throw flag+'The formula being derived must be one side of the biconditional on the first rule line, and the formula on the second rule line the other side of it.';	
 	}
 
