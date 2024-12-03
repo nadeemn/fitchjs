@@ -34,17 +34,17 @@ function ckRest(l,n) {
  	if(r=='Premise') {return ckPR(l,n);}
  	else if(r=='Assumption') {return ckAS(l,n);}
 	else if(r=='Reit') {return ckRE(l,n);}
- 	else if(r=='&I') {return ckCJI(l,n);}
- 	else if(r=='&E') {return ckCJE(l,n);}
- 	else if(r=='>I') {return ckCNI(l,n);}
-  	else if(r=='>E') {return ckCNE(l,n);}
+ 	else if(r=='∧I') {return ckCJI(l,n);}
+ 	else if(r=='∧E') {return ckCJE(l,n);}
+ 	else if(r=='→I') {return ckCNI(l,n);}
+  	else if(r=='→E') {return ckCNE(l,n);}
   	else if(r=='vI') {return ckDJI(l,n);}
   	else if(r=='vE') {return ckDJE(l,n);}
-  	else if(r=='~I') {return ckNI(l,n);}
+  	else if(r=='¬I') {return ckNI(l,n);}
    	else if(r=='#I') {return ckFI(l,n);}
-   	else if(r=='~E') {return ckNE(l,n);}
-  	else if(r=='<>I') {return ckBCI(l,n);}
-  	else if(r=='<>E') {return ckBCE(l,n);}
+   	else if(r=='¬E') {return ckNE(l,n);}
+  	else if(r=='↔I') {return ckBCI(l,n);}
+  	else if(r=='↔E') {return ckBCE(l,n);}
   	else if(r=='Flag') {return ckFLG(l,n);}
   	else if(r=='EI') {return ckEI(l,n);}
   	else if(r=='EE') {return ckEE(l,n);}
