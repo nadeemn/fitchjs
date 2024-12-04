@@ -46,10 +46,10 @@ function ckRest(l,n) {
   	else if(r=='↔I') {return ckBCI(l,n);}
   	else if(r=='↔E') {return ckBCE(l,n);}
   	else if(r=='Flag') {return ckFLG(l,n);}
-  	else if(r=='EI') {return ckEI(l,n);}
-  	else if(r=='EE') {return ckEE(l,n);}
-  	else if(r=='AI') {return ckAI(l,n);}
-  	else if(r=='AE') {return ckAE(l,n);}
+  	else if(r=='∃I') {return ckEI(l,n);}
+  	else if(r=='∃E') {return ckEE(l,n);}
+  	else if(r=='∀I') {return ckAI(l,n);}
+  	else if(r=='∀E') {return ckAE(l,n);}
  	else if(r=='=I') {return ckIDI(l,n);}
   	else if(r=='=E') {return ckIDE(l,n);} 
   	else if(r=='(EFQ)') {return ckEFQ(l,n);}
