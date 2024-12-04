@@ -552,8 +552,8 @@ function errmess(n,mess) {
 		erel.style.border = 'solid 1px #87D51C';
 		erel.style.backgroundColor = '#E3FFB8';
 		erel.innerHTML = mess;
+		document.getElementById('rul').value = '--Select--';
 	}
-	document.getElementById('rul').value = '--Select--';
 	document.getElementById('lin').value = '';
 	document.getElementById('dth').value = 'Plus 1';
 	show('rul');
