@@ -8,8 +8,8 @@ background-color: #f4f1deb3;
 
 #githublink {
 position:absolute;
-right:10px;
-top:8px;
+right:40px;
+top:40px;
 font-size:10pt;
 }
 
@@ -36,7 +36,7 @@ a:active {color:#4B2EDE;text-decoration:none;}  /* selected link */
 /* menu things */
 
 .menu-header {
-  background-color: #002A4E;
+  background-color: #1d5e97;
   height: 80px;
 }
 
