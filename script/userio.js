@@ -626,4 +626,13 @@ function insertText(symbol) {
 	}
 }
 
+// function to copy the exported proof.
+
+function Copy() {
+	var textArea = document.getElementById("importarea");
+	textArea.select()
+	
+	navigator.clipboard.writeText(textArea.value);
+}
+
 
