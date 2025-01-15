@@ -160,27 +160,27 @@ THE SOFTWARE.
 						</td>
 						<td class='siti'>
 							<select id='siti'>
-								<option value='(DS1):(AvB),~A,B'>DS1: AvB, ~A |- B</option>
-								<option value='(DS2):(AvB),~B,A'>DS2: AvB, ~B |- A</option>
-								<option value='(MT):(A&gt;B),~B,~A'>MT: A&gt;B, ~B |- ~A</option>
-								<option value='(PMI1):A,(B&gt;A)'>PMI1: A |- B&gt;A</option>
-								<option value='(PMI2):~A,(A&gt;B)'>PMI2: ~A |- A&gt;B</option>
-								<option value='(DN+):A,~~A'>DN+: A |- ~~A</option>
-								<option value='(EFQ):#,A'>EFQ: # |- A</option>
-								<option value='(DeM1):~(A&amp;B),(~Av~B)'>DeM1: ~(A&amp;B) -||- ~Av~B</option>
-								<option value='(DeM2):~(AvB),(~A&amp;~B)'>DeM2: ~(AvB) -||- ~A&amp;~B</option>
-								<option value='(DeM3):~(~Av~B),(A&amp;B)'>DeM3: ~(~Av~B) -||- A&amp;B</option>
-								<option value='(DeM4):~(~A&amp;~B),(AvB)'>DeM4: ~(~A&amp;~B) -||- AvB</option>
-								<option value='(Imp):(A>B),(~AvB)'>Imp: A&gt;B -||- ~AvB</option>
-								<option value='(NegImp):~(A>B),(A&amp;~B)'>NegImp: ~(A&gt;B) -||- A&amp;~B</option>
+								<option value='(DS1):(AvB),~A,B'>DS1: AvB, ¬A |- B</option>
+								<option value='(DS2):(AvB),~B,A'>DS2: AvB, ¬B |- A</option>
+								<option value='(MT):(A&gt;B),~B,~A'>MT: A&rarr;B, ¬B |- ¬A</option>
+								<option value='(PMI1):A,(B&gt;A)'>PMI1: A |- B&rarr;A</option>
+								<option value='(PMI2):~A,(A&gt;B)'>PMI2: ¬A |- A&rarr;B</option>
+								<option value='(DN+):A,~~A'>DN+: A |- ¬¬A</option>
+								<option value='(EFQ):#,A'>EFQ: ⊥ |- A</option>
+								<option value='(DeM1):~(A&amp;B),(~Av~B)'>DeM1: ¬(A&and;B) -||- ¬Av¬B</option>
+								<option value='(DeM2):~(AvB),(~A&amp;~B)'>DeM2: ¬(AvB) -||- ~A&and;~B</option>
+								<option value='(DeM3):~(~Av~B),(A&amp;B)'>DeM3: ¬(¬Av¬B) -||- A&and;B</option>
+								<option value='(DeM4):~(~A&amp;~B),(AvB)'>DeM4: ¬(¬A&and;¬B) -||- AvB</option>
+								<option value='(Imp):(A>B),(~AvB)'>Imp: A&rarr;B -||- ¬AvB</option>
+								<option value='(NegImp):~(A>B),(A&amp;~B)'>NegImp: ¬(A&rarr;B) -||- A&and;¬B</option>
 								<option value='(Com):(A*B),(B*A)'>Com: A*B |- B*A</option>
-								<option value='(Dist1):(A&amp;(BvC)),((A&amp;B)v(A&amp;C))'>Dist1: A&amp;(BvC) -||-
-									(A&amp;B)v(A&amp;C)</option>
-								<option value='(Dist2):(Av(B&amp;C)),((AvB)&amp;(AvC))'>Dist2: Av(B&amp;C) -||-
-									(AvB)&amp;(AvC)</option>
+								<option value='(Dist1):(A&amp;(BvC)),((A&amp;B)v(A&amp;C))'>Dist1: A&and;(BvC) -||-
+									(A&and;B)v(A&and;C)</option>
+								<option value='(Dist2):(Av(B&amp;C)),((AvB)&amp;(AvC))'>Dist2: Av(B&and;C) -||-
+									(AvB)&and;(AvC)</option>
 								<option value='(SDN1)'>SDN1: A*B pattern</option>
-								<option value='(SDN2)'>SDN2: ~(A*B) pattern</option>
-								<option value='(LEM):(Av~A)'>LEM: |- Av~A</option>
+								<option value='(SDN2)'>SDN2: ¬(A*B) pattern</option>
+								<option value='(LEM):(Av~A)'>LEM: |- Av¬A</option>
 								<option value='(QS)'>QS: "Quantifier Shift"</option>
 								<!--
 <option value='SI(AV)'>AV: "Alphabetic Variant"</option>
@@ -320,7 +320,7 @@ You can also paste a previously exported proof (in the plain text format) in thi
 						</tr>
 						<tr>
 							<td>Absurdity</td>
-							<td>#</td>
+							<td>⊥</td>
 						</tr>
 						<tr>
 							<td>Existential Quantifier</td>
@@ -761,11 +761,11 @@ You can also paste a previously exported proof (in the plain text format) in thi
 				<td class='cntc'></td>
 				<td class='frmc'>
 					<div>
-						<p>#</p>
+						<p>⊥</p>
 					</div>
 				</td>
 				<td class='rulc'>
-					<div>j,k #I</div>
+					<div>j,k ⊥I</div>
 				</td>
 			</tr>
 		</table>
