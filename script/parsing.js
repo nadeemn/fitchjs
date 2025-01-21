@@ -36,8 +36,8 @@ function parse(s) {
 	var s1 = [];
 	var s2 = [];
 	if(isQ(s)) {
-		s1 = parse(s.substring(4));
-		return s1.length ? [s.substring(0,4),s1] : [];
+		s1 = parse(s.substring(2));
+		return s1.length ? [s.substring(0,2),s1] : [];
 	}
 	if(isU(s[0])) {
 		s1 = parse(s.substring(1));
@@ -70,6 +70,12 @@ function isA(s) {
 	 	if(s.length==1) {
 	 		return true;
 	 	} else {
+			var match = s.match(/^([A-Z])\((.*)\)$/);
+			if(match) {
+				var args = match[2];
+				return Array.from(args).every(isT);
+			}
+
 	 		for(var i=1;i<s.length;i++) {
 	 			if(!isT(s[i])) {
 	 				return false;
@@ -91,7 +97,7 @@ function isAbs(s) {
 // Determines if s begins with a quantifier, e.g. 'Ez(...)'
 function isQ(s) {
 	var q = ['E','A','\u2203','\u2200'];
-	if(s[0]=='(' && q.indexOf(s[1])>=0 && isV(s[2]) && s[3]==')') {
+	if (q.indexOf(s[0]) >= 0 && isV(s[1])) {
 		return true;
 	} else {return false;}
 }
