@@ -289,8 +289,8 @@ You can also paste a previously exported proof (in the plain text format) in thi
 					<div class='note'>
 						NOTE: the program lets you drop the outermost parentheses on formulas with a binary main
 						connective, e.g. P→(Q∧R) rather than (P→(Q∧R)). Since the letter 'v' is used for disjunction, it
-						can't be used as a variable or individual constant. Note also that quantifiers are enclosed by
-						parentheses, e.g. (∃x)Rax rather than ∃xRax, or (∀x)(Fx>Gx) rather than ∀x(Fx>Gx).
+						can't be used as a variable or individual constant. Note also that quantifiers are not enclosed by
+						parentheses, e.g. ∃xR(x) rather than (∃x)Rx, or ∀x(F(x)>G(x)) rather than (∀x)(Fx>Gx).
 					</div>
 					<br>
 
@@ -378,16 +378,16 @@ You can also paste a previously exported proof (in the plain text format) in thi
 							<td>(Fa ∧ Rab)</td>
 						</tr>
 						<tr>
-							<td>(∃x)Rxb</td>
+							<td>∃xR(xb)</td>
 						</tr>
 						<tr>
-							<td>(∃x)(∀y)(Rxy ↔ Ryx)</td>
+							<td>∃x∀y(R(xy) ↔ R(yx))</td>
 						</tr>
 						<tr>
-							<td>(∀x)((Fx ∧ (∃y)Rxy) → (∃y)(Fy v Ryx))</td>
+							<td>∀x((F(x) ∧ ∃yR(xy)) → ∃y(F(y) v R(yx)))</td>
 						</tr>
 						<tr>
-							<td>((∀x)(Fx → (∃y)Rxy) → (∃y)Gy)</td>
+							<td>(∀x(F(x) → ∃yR(xy)) → ∃yG(y))</td>
 						</tr>
 					</table>
 
